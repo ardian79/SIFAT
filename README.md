@@ -32,25 +32,25 @@ Aplikasi ini menerapkan sistem *Role-Based Access Control* (Hak Akses Berdasarka
 
 Halaman masuk untuk Petani dan Buruh Tani dengan desain *Full Screen* dan *Card* elegan.
 
-![Halaman Login](docs/login.png)
+![Halaman Login](images/login.png)
 
 ### 2. Halaman Dashboard (Petani)
 
 Menampilkan ringkasan total pemasukan, pengeluaran, dan saldo kas secara otomatis.
 
-![Halaman Dashboard](docs/dashboard.png)
+![Halaman Dashboard](images/dashboard.png)
 
 ### 3. Manajemen Data Lahan
 
 Halaman untuk mencatat daftar lahan yang dimiliki beserta luasnya.
 
-![Halaman Lahan](docs/lahan.png)
+![Halaman Lahan](images/lahan.png)
 
 ### 4. Manajemen Jenis Keuangan
 
 Halaman pengaturan kategori (Master Data) untuk transaksi keuangan.
 
-![Halaman Jenis Keuangan](docs/jenis-keuangan.png)
+![Halaman Jenis Keuangan](images/jenis-keuangan.png)
 
 ### 5. Manajemen Data Keuangan (Buku Kas)
 
