@@ -59,7 +59,6 @@
             // panelInputLahan
             // 
             panelInputLahan.BackColor = Color.Transparent;
-            panelInputLahan.BorderStyle = BorderStyle.FixedSingle;
             panelInputLahan.Controls.Add(btnResetLahan);
             panelInputLahan.Controls.Add(btnHapusLahan);
             panelInputLahan.Controls.Add(btnUbahLahan);

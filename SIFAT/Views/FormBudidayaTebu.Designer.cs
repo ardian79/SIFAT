@@ -67,7 +67,6 @@
             // panelInputBudidayaTebu
             // 
             panelInputBudidayaTebu.BackColor = Color.Transparent;
-            panelInputBudidayaTebu.BorderStyle = BorderStyle.FixedSingle;
             panelInputBudidayaTebu.Controls.Add(dtpTanggalPanen);
             panelInputBudidayaTebu.Controls.Add(labelTanggalPanen);
             panelInputBudidayaTebu.Controls.Add(checkBox1);

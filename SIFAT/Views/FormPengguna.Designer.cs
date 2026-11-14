@@ -58,7 +58,6 @@
             // panelInputPengguna
             // 
             panelInputPengguna.BackColor = Color.Transparent;
-            panelInputPengguna.BorderStyle = BorderStyle.FixedSingle;
             panelInputPengguna.Controls.Add(btnResetPengguna);
             panelInputPengguna.Controls.Add(btnHapusPengguna);
             panelInputPengguna.Controls.Add(btnUbahPengguna);

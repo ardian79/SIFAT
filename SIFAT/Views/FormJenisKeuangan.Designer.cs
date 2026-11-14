@@ -60,7 +60,6 @@
             // panelInputJenisKeuangan
             // 
             panelInputJenisKeuangan.BackColor = Color.Transparent;
-            panelInputJenisKeuangan.BorderStyle = BorderStyle.FixedSingle;
             panelInputJenisKeuangan.Controls.Add(cmbKategoriJenis);
             panelInputJenisKeuangan.Controls.Add(btnResetJenisKeuangan);
             panelInputJenisKeuangan.Controls.Add(btnHapusJenisKeuangan);

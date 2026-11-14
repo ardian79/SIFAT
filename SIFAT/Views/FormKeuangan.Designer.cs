@@ -64,7 +64,6 @@
             // panelInputKeuangan
             // 
             panelInputKeuangan.BackColor = Color.Transparent;
-            panelInputKeuangan.BorderStyle = BorderStyle.FixedSingle;
             panelInputKeuangan.Controls.Add(txtKeteranganKeuangan);
             panelInputKeuangan.Controls.Add(label1);
             panelInputKeuangan.Controls.Add(cmbJenisKeuangan);
