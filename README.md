@@ -1,4 +1,4 @@
-# SIFAT - Sistem Informasi Pengelolaan Keuangan Budidaya Tebu
+# SIFAT - System Finance and Tracking
 
 SIFAT adalah aplikasi desktop berbasis **C# Windows Forms** yang dirancang khusus untuk membantu para petani dan buruh tani dalam mengelola keuangan serta mencatat aktivitas budidaya tanaman tebu secara digital, rapi, dan terintegrasi.
 
