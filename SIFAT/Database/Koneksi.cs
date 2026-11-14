@@ -7,7 +7,7 @@ namespace SIFAT.Database
 {
     internal class Koneksi
     {
-        private static string connString = "Host=localhost;Port=5432;Database=SIFAT;Username=postgres;Password=Lazuaros_7";
+        private static string connString = "Host=localhost;Port=5432;Database=SIFAT;Username=postgres;Password=passwordmu";
 
         public static NpgsqlConnection GetConnection()
         {
