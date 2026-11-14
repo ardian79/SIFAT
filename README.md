@@ -56,19 +56,19 @@ Halaman pengaturan kategori (Master Data) untuk transaksi keuangan.
 
 Halaman pencatatan uang masuk dan keluar beserta keterangannya.
 
-![Halaman Keuangan](docs/keuangan.png)
+![Halaman Keuangan](images/keuangan.png)
 
 ### 6. Manajemen Budidaya Tebu
 
 Halaman pencatatan tanggal tanam, jumlah tebu, dan status panen.
 
-![Halaman Budidaya](docs/budidaya.png)
+![Halaman Budidaya](images/budidaya.png)
 
 ### 7. Manajemen Kelola Buruh Tani (Khusus Petani)
 
 Halaman untuk Petani mendaftarkan, mereset password, atau menonaktifkan akun Buruh Tani.
 
-![Halaman Kelola Buruh](docs/kelola-buruh.png)
+![Halaman Kelola Buruh](images/kelola-buruh.png)
 
 ---
 
@@ -91,7 +91,7 @@ Halaman untuk Petani mendaftarkan, mereset password, atau menonaktifkan akun Bur
 4. **Siapkan Database:**
 
    - Buat database baru di PostgreSQL dengan nama `SIFAT`.
-   - Jalankan script SQL (terdapat pada file `database.sql` atau sesuai panduan di laporan).
+   - Jalankan script SQL yang terdapat pada file `database.sql`.
 
 5. **Sesuaikan Koneksi:**
 
