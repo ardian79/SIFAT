@@ -79,7 +79,10 @@ Halaman untuk Petani mendaftarkan, mereset password, atau menonaktifkan akun Bur
 
 2. **Clone Repositori:**
    * Pada halaman awal Visual Studio, pilih menu **"Clone a repository"**.
-   * Masukkan URL repositori ini: ```bash https://github.com/ardian79/SIFAT.git```
+   * Masukkan URL repositori ini: 
+   ```bash
+   https://github.com/ardian79/SIFAT.git
+   ```
    * Tentukan folder penyimpanan di komputermu, lalu klik **Clone**.
 
 3. **Install Dependencies:**
