@@ -74,15 +74,13 @@ Halaman untuk Petani mendaftarkan, mereset password, atau menonaktifkan akun Bur
 
 ## Cara Menjalankan Proyek
 
-1. **Clone Repositori ini:**
+1. **Buka Visual Studio 2022:**
+   Buka aplikasi Visual Studio di komputermu.
 
-   ```bash
-   git clone https://github.com/ardian79/SIFAT.git
-   ```
-
-2. **Buka di Visual Studio:**
-
-   Buka file `SIFAT.sln` menggunakan Visual Studio 2022.
+2. **Clone Repositori:**
+   * Pada halaman awal Visual Studio, pilih menu **"Clone a repository"**.
+   * Masukkan URL repositori ini: ```bash https://github.com/ardian79/SIFAT.git```
+   * Tentukan folder penyimpanan di komputermu, lalu klik **Clone**.
 
 3. **Install Dependencies:**
 
