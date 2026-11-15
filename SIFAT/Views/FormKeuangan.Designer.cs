@@ -78,7 +78,7 @@
             panelInputKeuangan.Controls.Add(labelTanggal);
             panelInputKeuangan.Location = new Point(28, 60);
             panelInputKeuangan.Name = "panelInputKeuangan";
-            panelInputKeuangan.Size = new Size(1050, 150);
+            panelInputKeuangan.Size = new Size(1100, 150);
             panelInputKeuangan.TabIndex = 4;
             // 
             // txtKeteranganKeuangan
@@ -86,7 +86,7 @@
             txtKeteranganKeuangan.BackColor = Color.White;
             txtKeteranganKeuangan.BorderStyle = BorderStyle.FixedSingle;
             txtKeteranganKeuangan.ForeColor = Color.Black;
-            txtKeteranganKeuangan.Location = new Point(724, 45);
+            txtKeteranganKeuangan.Location = new Point(774, 46);
             txtKeteranganKeuangan.Name = "txtKeteranganKeuangan";
             txtKeteranganKeuangan.Size = new Size(250, 27);
             txtKeteranganKeuangan.TabIndex = 15;
@@ -95,7 +95,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(724, 20);
+            label1.Location = new Point(774, 21);
             label1.Name = "label1";
             label1.Size = new Size(102, 23);
             label1.TabIndex = 14;
@@ -108,7 +108,7 @@
             cmbJenisKeuangan.FormattingEnabled = true;
             cmbJenisKeuangan.Location = new Point(325, 45);
             cmbJenisKeuangan.Name = "cmbJenisKeuangan";
-            cmbJenisKeuangan.Size = new Size(150, 28);
+            cmbJenisKeuangan.Size = new Size(200, 28);
             cmbJenisKeuangan.TabIndex = 13;
             // 
             // dtpTanggalKeuangan
@@ -180,7 +180,7 @@
             txtJumlahKeuangan.BackColor = Color.White;
             txtJumlahKeuangan.BorderStyle = BorderStyle.FixedSingle;
             txtJumlahKeuangan.ForeColor = Color.Black;
-            txtJumlahKeuangan.Location = new Point(524, 45);
+            txtJumlahKeuangan.Location = new Point(574, 46);
             txtJumlahKeuangan.Name = "txtJumlahKeuangan";
             txtJumlahKeuangan.Size = new Size(150, 27);
             txtJumlahKeuangan.TabIndex = 8;
@@ -189,7 +189,7 @@
             // 
             labelJumlah.AutoSize = true;
             labelJumlah.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelJumlah.Location = new Point(524, 20);
+            labelJumlah.Location = new Point(574, 21);
             labelJumlah.Name = "labelJumlah";
             labelJumlah.Size = new Size(107, 23);
             labelJumlah.TabIndex = 7;
