@@ -41,6 +41,12 @@
             labelNamaLengkap = new Label();
             labelBuruhTani = new Label();
             dgvPengguna = new DataGridView();
+            colNamaLengkap = new DataGridViewTextBoxColumn();
+            colUsername = new DataGridViewTextBoxColumn();
+            colId = new DataGridViewTextBoxColumn();
+            colPassword = new DataGridViewTextBoxColumn();
+            colRole = new DataGridViewTextBoxColumn();
+            colIsDelete = new DataGridViewTextBoxColumn();
             panelInputPengguna.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPengguna).BeginInit();
             SuspendLayout();
@@ -196,7 +202,9 @@
             dgvPengguna.AllowUserToAddRows = false;
             dgvPengguna.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvPengguna.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPengguna.BackgroundColor = Color.White;
             dgvPengguna.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPengguna.Columns.AddRange(new DataGridViewColumn[] { colNamaLengkap, colUsername, colId, colPassword, colRole, colIsDelete });
             dgvPengguna.Location = new Point(28, 230);
             dgvPengguna.Name = "dgvPengguna";
             dgvPengguna.ReadOnly = true;
@@ -204,6 +212,58 @@
             dgvPengguna.Size = new Size(1950, 250);
             dgvPengguna.TabIndex = 5;
             dgvPengguna.CellClick += dgvPengguna_CellClick;
+            // 
+            // colNamaLengkap
+            // 
+            colNamaLengkap.DataPropertyName = "NamaLengkap";
+            colNamaLengkap.HeaderText = "Nama Lengkap";
+            colNamaLengkap.MinimumWidth = 6;
+            colNamaLengkap.Name = "NamaLengkap";
+            colNamaLengkap.ReadOnly = true;
+            // 
+            // colUsername
+            // 
+            colUsername.DataPropertyName = "Username";
+            colUsername.HeaderText = "Username";
+            colUsername.MinimumWidth = 6;
+            colUsername.Name = "Username";
+            colUsername.ReadOnly = true;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "Id";
+            colId.MinimumWidth = 6;
+            colId.Name = "Id";
+            colId.ReadOnly = true;
+            colId.Visible = false;
+            // 
+            // colPassword
+            // 
+            colPassword.DataPropertyName = "Password";
+            colPassword.HeaderText = "Password";
+            colPassword.MinimumWidth = 6;
+            colPassword.Name = "Password";
+            colPassword.ReadOnly = true;
+            colPassword.Visible = false;
+            // 
+            // colRole
+            // 
+            colRole.DataPropertyName = "Role";
+            colRole.HeaderText = "Role";
+            colRole.MinimumWidth = 6;
+            colRole.Name = "Role";
+            colRole.ReadOnly = true;
+            colRole.Visible = false;
+            // 
+            // colIsDelete
+            // 
+            colIsDelete.DataPropertyName = "IsDelete";
+            colIsDelete.HeaderText = "IsDelete";
+            colIsDelete.MinimumWidth = 6;
+            colIsDelete.Name = "IsDelete";
+            colIsDelete.ReadOnly = true;
+            colIsDelete.Visible = false;
             // 
             // FormPengguna
             // 
@@ -237,5 +297,11 @@
         private Label labelNamaLengkap;
         private Label labelBuruhTani;
         private DataGridView dgvPengguna;
+        private DataGridViewTextBoxColumn colNamaLengkap;
+        private DataGridViewTextBoxColumn colUsername;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colPassword;
+        private DataGridViewTextBoxColumn colRole;
+        private DataGridViewTextBoxColumn colIsDelete;
     }
 }

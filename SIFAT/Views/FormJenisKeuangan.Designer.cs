@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             dgvJenisKeuangan = new DataGridView();
+            colNamaJenis = new DataGridViewTextBoxColumn();
+            colKategori = new DataGridViewTextBoxColumn();
+            colId = new DataGridViewTextBoxColumn();
+            colIsDelete = new DataGridViewTextBoxColumn();
             panelInputJenisKeuangan = new Panel();
             cmbKategoriJenis = new ComboBox();
             btnResetJenisKeuangan = new Button();
@@ -48,7 +52,9 @@
             dgvJenisKeuangan.AllowUserToAddRows = false;
             dgvJenisKeuangan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvJenisKeuangan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvJenisKeuangan.BackgroundColor = Color.White;
             dgvJenisKeuangan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvJenisKeuangan.Columns.AddRange(new DataGridViewColumn[] { colNamaJenis, colKategori, colId, colIsDelete });
             dgvJenisKeuangan.Location = new Point(28, 230);
             dgvJenisKeuangan.Name = "dgvJenisKeuangan";
             dgvJenisKeuangan.ReadOnly = true;
@@ -56,6 +62,40 @@
             dgvJenisKeuangan.Size = new Size(1950, 250);
             dgvJenisKeuangan.TabIndex = 8;
             dgvJenisKeuangan.CellClick += dgvJenisKeuangan_CellClick;
+            // 
+            // colNamaJenis
+            // 
+            colNamaJenis.DataPropertyName = "NamaJenis";
+            colNamaJenis.HeaderText = "Nama Jenis";
+            colNamaJenis.MinimumWidth = 6;
+            colNamaJenis.Name = "NamaJenis";
+            colNamaJenis.ReadOnly = true;
+            // 
+            // colKategori
+            // 
+            colKategori.DataPropertyName = "Kategori";
+            colKategori.HeaderText = "Kategori";
+            colKategori.MinimumWidth = 6;
+            colKategori.Name = "Kategori";
+            colKategori.ReadOnly = true;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "Id";
+            colId.MinimumWidth = 6;
+            colId.Name = "Id";
+            colId.ReadOnly = true;
+            colId.Visible = false;
+            // 
+            // colIsDelete
+            // 
+            colIsDelete.DataPropertyName = "IsDelete";
+            colIsDelete.HeaderText = "IsDelete";
+            colIsDelete.MinimumWidth = 6;
+            colIsDelete.Name = "IsDelete";
+            colIsDelete.ReadOnly = true;
+            colIsDelete.Visible = false;
             // 
             // panelInputJenisKeuangan
             // 
@@ -210,5 +250,9 @@
         private Label labelNamaJenis;
         private Label labelKategori;
         private Label labelJenisKeuangan;
+        private DataGridViewTextBoxColumn colNamaJenis;
+        private DataGridViewTextBoxColumn colKategori;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colIsDelete;
     }
 }

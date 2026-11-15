@@ -77,10 +77,23 @@ namespace SIFAT.Views
 
         private void AturTinggiTabel()
         {
-            int tinggiHeader = dgvBudidayaTebu.ColumnHeadersHeight;
-            int tinggiBaris = dgvBudidayaTebu.RowTemplate.Height;
-            int jumlahBaris = dgvBudidayaTebu.Rows.Count;
-            dgvBudidayaTebu.Height = tinggiHeader + (tinggiBaris * jumlahBaris) + 5;
+            int totalHeight = dgvBudidayaTebu.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in dgvBudidayaTebu.Rows)
+            {
+                if (row.Visible) totalHeight += row.Height;
+            }
+            totalHeight += 2;
+
+            bool hasHScroll = false;
+            foreach (Control c in dgvBudidayaTebu.Controls)
+            {
+                if (c is HScrollBar && c.Visible) { hasHScroll = true; break; }
+            }
+            if (hasHScroll) totalHeight += SystemInformation.HorizontalScrollBarHeight;
+
+            int maxHeight = this.ClientSize.Height - dgvBudidayaTebu.Top - 20;
+            dgvBudidayaTebu.Height = Math.Min(totalHeight, maxHeight);
+            dgvBudidayaTebu.BackgroundColor = Color.White;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -186,6 +199,8 @@ namespace SIFAT.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvBudidayaTebu.Rows[e.RowIndex];
+                if (row.Cells["Id"].Value == null || row.Cells["Id"].Value == DBNull.Value) return;
+
                 _selectedId = Convert.ToInt32(row.Cells["Id"].Value);
                 cmbLahanBudidaya.SelectedValue = Convert.ToInt32(row.Cells["IdLahan"].Value);
                 dtpTanggalTanam.Value = Convert.ToDateTime(row.Cells["TanggalTanam"].Value);

@@ -55,6 +55,7 @@
             dgvBudidayaTebu.AllowUserToAddRows = false;
             dgvBudidayaTebu.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvBudidayaTebu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBudidayaTebu.BackgroundColor = Color.White;
             dgvBudidayaTebu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBudidayaTebu.Location = new Point(28, 330);
             dgvBudidayaTebu.Name = "dgvBudidayaTebu";

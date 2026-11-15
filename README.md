@@ -34,7 +34,7 @@ Halaman masuk untuk Petani dan Buruh Tani dengan desain *Full Screen* dan *Card*
 
 ![Halaman Login](images/login.png)
 
-### 2. Halaman Dashboard (Petani)
+### 2. Halaman Dashboard
 
 Menampilkan ringkasan total pemasukan, pengeluaran, dan saldo kas secara otomatis.
 
@@ -52,7 +52,7 @@ Halaman pengaturan kategori (Master Data) untuk transaksi keuangan.
 
 ![Halaman Jenis Keuangan](images/jenis-keuangan.png)
 
-### 5. Manajemen Data Keuangan (Buku Kas)
+### 5. Manajemen Data Keuangan
 
 Halaman pencatatan uang masuk dan keluar beserta keterangannya.
 
@@ -64,7 +64,7 @@ Halaman pencatatan tanggal tanam, jumlah tebu, dan status panen.
 
 ![Halaman Budidaya](images/budidaya.png)
 
-### 7. Manajemen Kelola Buruh Tani (Khusus Petani)
+### 7. Manajemen Kelola Buruh Tani
 
 Halaman untuk Petani mendaftarkan, mereset password, atau menonaktifkan akun Buruh Tani.
 
@@ -74,7 +74,7 @@ Halaman untuk Petani mendaftarkan, mereset password, atau menonaktifkan akun Bur
 
 ## Cara Menjalankan Proyek
 
-1. **Buka Visual Studio 2022:**
+1. **Buka Visual Studio Microsoft:**
    Buka aplikasi Visual Studio di komputermu.
 
 2. **Clone Repositori:**
@@ -112,4 +112,4 @@ Halaman untuk Petani mendaftarkan, mereset password, atau menonaktifkan akun Bur
 
 ---
 
-*Dibuat untuk memenuhi Tugas Akhir Mata Kuliah Pemrograman Berorientasi Objek (PBO) - Universitas Jember.*
+*Dibuat untuk memenuhi Tugas Akhir Mata Kuliah Pemrograman Berorientasi Objek (PBO).*

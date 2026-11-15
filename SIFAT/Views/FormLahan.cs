@@ -31,13 +31,8 @@ namespace SIFAT.Views
             try
             {
                 List<Lahan> list = _controller.GetAllLahan();
+                dgvLahan.AutoGenerateColumns = false;
                 dgvLahan.DataSource = list;
-
-                if (dgvLahan.Columns["Id"] != null) dgvLahan.Columns["Id"].Visible = false;
-                if (dgvLahan.Columns["NamaLokasi"] != null) dgvLahan.Columns["NamaLokasi"].HeaderText = "Nama Lokasi";
-                if (dgvLahan.Columns["LuasLahan"] != null) dgvLahan.Columns["LuasLahan"].HeaderText = "Luas (Ha)";
-                if (dgvLahan.Columns["Catatan"] != null) dgvLahan.Columns["Catatan"].HeaderText = "Catatan";
-                if (dgvLahan.Columns["IsDelete"] != null) dgvLahan.Columns["IsDelete"].Visible = false;
 
                 AturTinggiTabel();
             }
@@ -49,16 +44,28 @@ namespace SIFAT.Views
 
         private void AturTinggiTabel()
         {
-            int tinggiHeader = dgvLahan.ColumnHeadersHeight;
-            int tinggiBaris = dgvLahan.RowTemplate.Height;
-            int jumlahBaris = dgvLahan.Rows.Count;
-            dgvLahan.Height = tinggiHeader + (tinggiBaris * jumlahBaris) + 5;
+            int totalHeight = dgvLahan.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in dgvLahan.Rows)
+            {
+                if (row.Visible) totalHeight += row.Height;
+            }
+            totalHeight += 2;
+
+            bool hasHScroll = false;
+            foreach (Control c in dgvLahan.Controls)
+            {
+                if (c is HScrollBar && c.Visible) { hasHScroll = true; break; }
+            }
+            if (hasHScroll) totalHeight += SystemInformation.HorizontalScrollBarHeight;
+
+            int maxHeight = this.ClientSize.Height - dgvLahan.Top - 20;
+            dgvLahan.Height = Math.Min(totalHeight, maxHeight);
+            dgvLahan.BackgroundColor = Color.White;
         }
 
         private void btnTambahLahan_Click(object sender, EventArgs e)
         {
             string pesan = _controller.TambahLahan(txtNamaLahan.Text, txtLuasLahan.Text, txtCatatanLahan.Text);
-
             if (pesan == "OK")
             {
                 MessageBox.Show("Data Lahan berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -78,9 +85,7 @@ namespace SIFAT.Views
                 MessageBox.Show("Pilih data di tabel terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             string pesan = _controller.UbahLahan(_selectedId, txtNamaLahan.Text, txtLuasLahan.Text, txtCatatanLahan.Text);
-
             if (pesan == "OK")
             {
                 MessageBox.Show("Data Lahan berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,7 +105,6 @@ namespace SIFAT.Views
                 MessageBox.Show("Pilih data di tabel terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             DialogResult result = MessageBox.Show("Yakin ingin menghapus lahan ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -132,6 +136,8 @@ namespace SIFAT.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvLahan.Rows[e.RowIndex];
+                if (row.Cells["Id"].Value == null || row.Cells["Id"].Value == DBNull.Value) return;
+
                 _selectedId = Convert.ToInt32(row.Cells["Id"].Value);
                 txtNamaLahan.Text = row.Cells["NamaLokasi"].Value.ToString();
                 txtLuasLahan.Text = row.Cells["LuasLahan"].Value.ToString();
@@ -140,3 +146,4 @@ namespace SIFAT.Views
         }
     }
 }
+

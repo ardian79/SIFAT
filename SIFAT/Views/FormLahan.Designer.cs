@@ -41,6 +41,11 @@
             txtNamaLahan = new TextBox();
             labelLokasi = new Label();
             dgvLahan = new DataGridView();
+            colNamaLokasi = new DataGridViewTextBoxColumn();
+            colLuas = new DataGridViewTextBoxColumn();
+            colCatatan = new DataGridViewTextBoxColumn();
+            colId = new DataGridViewTextBoxColumn();
+            colIsDelete = new DataGridViewTextBoxColumn();
             panelInputLahan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLahan).BeginInit();
             SuspendLayout();
@@ -195,7 +200,9 @@
             dgvLahan.AllowUserToAddRows = false;
             dgvLahan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvLahan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLahan.BackgroundColor = Color.White;
             dgvLahan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLahan.Columns.AddRange(new DataGridViewColumn[] { colNamaLokasi, colLuas, colCatatan, colId, colIsDelete });
             dgvLahan.Location = new Point(28, 230);
             dgvLahan.Name = "dgvLahan";
             dgvLahan.ReadOnly = true;
@@ -203,6 +210,48 @@
             dgvLahan.Size = new Size(1950, 250);
             dgvLahan.TabIndex = 2;
             dgvLahan.CellClick += dgvLahan_CellClick;
+            // 
+            // colNamaLokasi
+            // 
+            colNamaLokasi.DataPropertyName = "NamaLokasi";
+            colNamaLokasi.HeaderText = "Nama Lokasi";
+            colNamaLokasi.MinimumWidth = 6;
+            colNamaLokasi.Name = "NamaLokasi";
+            colNamaLokasi.ReadOnly = true;
+            // 
+            // colLuas
+            // 
+            colLuas.DataPropertyName = "LuasLahan";
+            colLuas.HeaderText = "Luas (Ha)";
+            colLuas.MinimumWidth = 6;
+            colLuas.Name = "LuasLahan";
+            colLuas.ReadOnly = true;
+            // 
+            // colCatatan
+            // 
+            colCatatan.DataPropertyName = "Catatan";
+            colCatatan.HeaderText = "Catatan";
+            colCatatan.MinimumWidth = 6;
+            colCatatan.Name = "Catatan";
+            colCatatan.ReadOnly = true;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "Id";
+            colId.MinimumWidth = 6;
+            colId.Name = "Id";
+            colId.ReadOnly = true;
+            colId.Visible = false;
+            // 
+            // colIsDelete
+            // 
+            colIsDelete.DataPropertyName = "IsDelete";
+            colIsDelete.HeaderText = "IsDelete";
+            colIsDelete.MinimumWidth = 6;
+            colIsDelete.Name = "IsDelete";
+            colIsDelete.ReadOnly = true;
+            colIsDelete.Visible = false;
             // 
             // FormLahan
             // 
@@ -236,5 +285,10 @@
         private Button btnHapusLahan;
         private Button btnUbahLahan;
         private DataGridView dgvLahan;
+        private DataGridViewTextBoxColumn colNamaLokasi;
+        private DataGridViewTextBoxColumn colLuas;
+        private DataGridViewTextBoxColumn colCatatan;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colIsDelete;
     }
 }

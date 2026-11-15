@@ -31,14 +31,8 @@ namespace SIFAT.Views
             try
             {
                 List<Pengguna> list = _controller.GetAllBuruh();
+                dgvPengguna.AutoGenerateColumns = false;
                 dgvPengguna.DataSource = list;
-
-                if (dgvPengguna.Columns["Id"] != null) dgvPengguna.Columns["Id"].Visible = false;
-                if (dgvPengguna.Columns["NamaLengkap"] != null) dgvPengguna.Columns["NamaLengkap"].HeaderText = "Nama Lengkap";
-                if (dgvPengguna.Columns["Username"] != null) dgvPengguna.Columns["Username"].HeaderText = "Username";
-                if (dgvPengguna.Columns["Role"] != null) dgvPengguna.Columns["Role"].Visible = false;
-                if (dgvPengguna.Columns["IsDelete"] != null) dgvPengguna.Columns["IsDelete"].Visible = false;
-                if (dgvPengguna.Columns["Password"] != null) dgvPengguna.Columns["Password"].Visible = false;
 
                 AturTinggiTabel();
             }
@@ -50,16 +44,28 @@ namespace SIFAT.Views
 
         private void AturTinggiTabel()
         {
-            int tinggiHeader = dgvPengguna.ColumnHeadersHeight;
-            int tinggiBaris = dgvPengguna.RowTemplate.Height;
-            int jumlahBaris = dgvPengguna.Rows.Count;
-            dgvPengguna.Height = tinggiHeader + (tinggiBaris * jumlahBaris) + 5;
+            int totalHeight = dgvPengguna.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in dgvPengguna.Rows)
+            {
+                if (row.Visible) totalHeight += row.Height;
+            }
+            totalHeight += 2;
+
+            bool hasHScroll = false;
+            foreach (Control c in dgvPengguna.Controls)
+            {
+                if (c is HScrollBar && c.Visible) { hasHScroll = true; break; }
+            }
+            if (hasHScroll) totalHeight += SystemInformation.HorizontalScrollBarHeight;
+
+            int maxHeight = this.ClientSize.Height - dgvPengguna.Top - 20;
+            dgvPengguna.Height = Math.Min(totalHeight, maxHeight);
+            dgvPengguna.BackgroundColor = Color.White;
         }
 
         private void btnTambahPengguna_Click(object sender, EventArgs e)
         {
             string pesan = _controller.TambahBuruh(txtNamaLengkapPengguna.Text, txtUsernamePengguna.Text, txtPasswordPengguna.Text);
-
             if (pesan == "OK")
             {
                 MessageBox.Show("Akun buruh tani berhasil dibuat!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -79,9 +85,7 @@ namespace SIFAT.Views
                 MessageBox.Show("Pilih data di tabel terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             string pesan = _controller.UbahBuruh(_selectedId, txtNamaLengkapPengguna.Text, txtUsernamePengguna.Text, txtPasswordPengguna.Text);
-
             if (pesan == "OK")
             {
                 MessageBox.Show("Data akun buruh tani berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -101,7 +105,6 @@ namespace SIFAT.Views
                 MessageBox.Show("Pilih data di tabel terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             DialogResult result = MessageBox.Show("Yakin ingin menonaktifkan buruh tani ini? Buruh tani tidak akan bisa login lagi.", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -133,6 +136,8 @@ namespace SIFAT.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvPengguna.Rows[e.RowIndex];
+                if (row.Cells["Id"].Value == null || row.Cells["Id"].Value == DBNull.Value) return;
+
                 _selectedId = Convert.ToInt32(row.Cells["Id"].Value);
                 txtNamaLengkapPengguna.Text = row.Cells["NamaLengkap"].Value.ToString();
                 txtUsernamePengguna.Text = row.Cells["Username"].Value.ToString();

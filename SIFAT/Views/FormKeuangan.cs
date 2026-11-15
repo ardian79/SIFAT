@@ -50,18 +50,8 @@ namespace SIFAT.Views
             try
             {
                 List<Keuangan> list = _controller.GetAllKeuangan();
+                dgvKeuangan.AutoGenerateColumns = false;
                 dgvKeuangan.DataSource = list;
-
-                if (dgvKeuangan.Columns["Id"] != null) dgvKeuangan.Columns["Id"].Visible = false;
-                if (dgvKeuangan.Columns["IdPengguna"] != null) dgvKeuangan.Columns["IdPengguna"].Visible = false;
-                if (dgvKeuangan.Columns["IdJenisKeuangan"] != null) dgvKeuangan.Columns["IdJenisKeuangan"].Visible = false;
-                if (dgvKeuangan.Columns["IsDelete"] != null) dgvKeuangan.Columns["IsDelete"].Visible = false;
-
-                if (dgvKeuangan.Columns["NamaJenis"] != null) dgvKeuangan.Columns["NamaJenis"].HeaderText = "Jenis";
-                if (dgvKeuangan.Columns["Kategori"] != null) dgvKeuangan.Columns["Kategori"].HeaderText = "Kategori";
-                if (dgvKeuangan.Columns["Tanggal"] != null) dgvKeuangan.Columns["Tanggal"].HeaderText = "Tanggal";
-                if (dgvKeuangan.Columns["Jumlah"] != null) dgvKeuangan.Columns["Jumlah"].HeaderText = "Jumlah (Rp)";
-                if (dgvKeuangan.Columns["Keterangan"] != null) dgvKeuangan.Columns["Keterangan"].HeaderText = "Keterangan";
 
                 AturTinggiTabel();
             }
@@ -73,10 +63,23 @@ namespace SIFAT.Views
 
         private void AturTinggiTabel()
         {
-            int tinggiHeader = dgvKeuangan.ColumnHeadersHeight;
-            int tinggiBaris = dgvKeuangan.RowTemplate.Height;
-            int jumlahBaris = dgvKeuangan.Rows.Count;
-            dgvKeuangan.Height = tinggiHeader + (tinggiBaris * jumlahBaris) + 5;
+            int totalHeight = dgvKeuangan.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in dgvKeuangan.Rows)
+            {
+                if (row.Visible) totalHeight += row.Height;
+            }
+            totalHeight += 2;
+
+            bool hasHScroll = false;
+            foreach (Control c in dgvKeuangan.Controls)
+            {
+                if (c is HScrollBar && c.Visible) { hasHScroll = true; break; }
+            }
+            if (hasHScroll) totalHeight += SystemInformation.HorizontalScrollBarHeight;
+
+            int maxHeight = this.ClientSize.Height - dgvKeuangan.Top - 20;
+            dgvKeuangan.Height = Math.Min(totalHeight, maxHeight);
+            dgvKeuangan.BackgroundColor = Color.White;
         }
 
         private void btnTambahKeuangan_Click(object sender, EventArgs e)
@@ -171,6 +174,8 @@ namespace SIFAT.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvKeuangan.Rows[e.RowIndex];
+                if (row.Cells["Id"].Value == null || row.Cells["Id"].Value == DBNull.Value) return;
+
                 _selectedId = Convert.ToInt32(row.Cells["Id"].Value);
                 dtpTanggalKeuangan.Value = Convert.ToDateTime(row.Cells["Tanggal"].Value);
                 cmbJenisKeuangan.SelectedValue = Convert.ToInt32(row.Cells["IdJenisKeuangan"].Value);
@@ -180,3 +185,4 @@ namespace SIFAT.Views
         }
     }
 }
+
