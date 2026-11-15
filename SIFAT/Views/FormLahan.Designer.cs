@@ -88,7 +88,7 @@
             btnResetLahan.Location = new Point(462, 98);
             btnResetLahan.Name = "btnResetLahan";
             btnResetLahan.Size = new Size(105, 34);
-            btnResetLahan.TabIndex = 11;
+            btnResetLahan.TabIndex = 6;
             btnResetLahan.Text = "Reset";
             btnResetLahan.UseVisualStyleBackColor = false;
             btnResetLahan.Click += btnResetLahan_Click;
@@ -102,7 +102,7 @@
             btnHapusLahan.Location = new Point(316, 98);
             btnHapusLahan.Name = "btnHapusLahan";
             btnHapusLahan.Size = new Size(105, 34);
-            btnHapusLahan.TabIndex = 10;
+            btnHapusLahan.TabIndex = 5;
             btnHapusLahan.Text = "Hapus";
             btnHapusLahan.UseVisualStyleBackColor = false;
             btnHapusLahan.Click += btnHapusLahan_Click;
@@ -116,7 +116,7 @@
             btnUbahLahan.Location = new Point(171, 98);
             btnUbahLahan.Name = "btnUbahLahan";
             btnUbahLahan.Size = new Size(105, 34);
-            btnUbahLahan.TabIndex = 9;
+            btnUbahLahan.TabIndex = 4;
             btnUbahLahan.Text = "Ubah";
             btnUbahLahan.UseVisualStyleBackColor = false;
             btnUbahLahan.Click += btnUbahLahan_Click;
@@ -130,7 +130,7 @@
             btnTambahLahan.Location = new Point(24, 98);
             btnTambahLahan.Name = "btnTambahLahan";
             btnTambahLahan.Size = new Size(105, 34);
-            btnTambahLahan.TabIndex = 5;
+            btnTambahLahan.TabIndex = 3;
             btnTambahLahan.Text = "Tambah";
             btnTambahLahan.UseVisualStyleBackColor = false;
             btnTambahLahan.Click += btnTambahLahan_Click;
@@ -143,7 +143,7 @@
             txtCatatanLahan.Location = new Point(421, 45);
             txtCatatanLahan.Name = "txtCatatanLahan";
             txtCatatanLahan.Size = new Size(250, 27);
-            txtCatatanLahan.TabIndex = 8;
+            txtCatatanLahan.TabIndex = 2;
             // 
             // labelCatatan
             // 
@@ -163,7 +163,7 @@
             txtLuasLahan.Location = new Point(273, 45);
             txtLuasLahan.Name = "txtLuasLahan";
             txtLuasLahan.Size = new Size(100, 27);
-            txtLuasLahan.TabIndex = 6;
+            txtLuasLahan.TabIndex = 1;
             // 
             // labelLuas
             // 
@@ -183,7 +183,7 @@
             txtNamaLahan.Location = new Point(24, 45);
             txtNamaLahan.Name = "txtNamaLahan";
             txtNamaLahan.Size = new Size(200, 27);
-            txtNamaLahan.TabIndex = 4;
+            txtNamaLahan.TabIndex = 0;
             // 
             // labelLokasi
             // 

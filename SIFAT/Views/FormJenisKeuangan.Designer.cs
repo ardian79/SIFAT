@@ -60,7 +60,7 @@
             dgvJenisKeuangan.ReadOnly = true;
             dgvJenisKeuangan.RowHeadersWidth = 51;
             dgvJenisKeuangan.Size = new Size(1950, 250);
-            dgvJenisKeuangan.TabIndex = 8;
+            dgvJenisKeuangan.TabIndex = 6;
             dgvJenisKeuangan.CellClick += dgvJenisKeuangan_CellClick;
             // 
             // colNamaJenis
@@ -111,7 +111,7 @@
             panelInputJenisKeuangan.Location = new Point(28, 60);
             panelInputJenisKeuangan.Name = "panelInputJenisKeuangan";
             panelInputJenisKeuangan.Size = new Size(850, 150);
-            panelInputJenisKeuangan.TabIndex = 7;
+            panelInputJenisKeuangan.TabIndex = 5;
             // 
             // cmbKategoriJenis
             // 
@@ -121,7 +121,7 @@
             cmbKategoriJenis.Location = new Point(325, 45);
             cmbKategoriJenis.Name = "cmbKategoriJenis";
             cmbKategoriJenis.Size = new Size(200, 28);
-            cmbKategoriJenis.TabIndex = 13;
+            cmbKategoriJenis.TabIndex = 1;
             // 
             // btnResetJenisKeuangan
             // 
@@ -132,7 +132,7 @@
             btnResetJenisKeuangan.Location = new Point(462, 98);
             btnResetJenisKeuangan.Name = "btnResetJenisKeuangan";
             btnResetJenisKeuangan.Size = new Size(105, 34);
-            btnResetJenisKeuangan.TabIndex = 11;
+            btnResetJenisKeuangan.TabIndex = 5;
             btnResetJenisKeuangan.Text = "Reset";
             btnResetJenisKeuangan.UseVisualStyleBackColor = false;
             btnResetJenisKeuangan.Click += btnResetJenisKeuangan_Click;
@@ -146,7 +146,7 @@
             btnHapusJenisKeuangan.Location = new Point(316, 98);
             btnHapusJenisKeuangan.Name = "btnHapusJenisKeuangan";
             btnHapusJenisKeuangan.Size = new Size(105, 34);
-            btnHapusJenisKeuangan.TabIndex = 10;
+            btnHapusJenisKeuangan.TabIndex = 4;
             btnHapusJenisKeuangan.Text = "Hapus";
             btnHapusJenisKeuangan.UseVisualStyleBackColor = false;
             btnHapusJenisKeuangan.Click += btnHapusJenisKeuangan_Click;
@@ -160,7 +160,7 @@
             btnUbahJenisKeuangan.Location = new Point(171, 98);
             btnUbahJenisKeuangan.Name = "btnUbahJenisKeuangan";
             btnUbahJenisKeuangan.Size = new Size(105, 34);
-            btnUbahJenisKeuangan.TabIndex = 9;
+            btnUbahJenisKeuangan.TabIndex = 3;
             btnUbahJenisKeuangan.Text = "Ubah";
             btnUbahJenisKeuangan.UseVisualStyleBackColor = false;
             btnUbahJenisKeuangan.Click += btnUbahJenisKeuangan_Click;
@@ -174,7 +174,7 @@
             btnTambahJenisKeuangan.Location = new Point(24, 98);
             btnTambahJenisKeuangan.Name = "btnTambahJenisKeuangan";
             btnTambahJenisKeuangan.Size = new Size(105, 34);
-            btnTambahJenisKeuangan.TabIndex = 5;
+            btnTambahJenisKeuangan.TabIndex = 2;
             btnTambahJenisKeuangan.Text = "Tambah";
             btnTambahJenisKeuangan.UseVisualStyleBackColor = false;
             btnTambahJenisKeuangan.Click += btnTambahJenisKeuangan_Click;
@@ -187,7 +187,7 @@
             txtNamaJenis.Location = new Point(24, 45);
             txtNamaJenis.Name = "txtNamaJenis";
             txtNamaJenis.Size = new Size(250, 27);
-            txtNamaJenis.TabIndex = 8;
+            txtNamaJenis.TabIndex = 0;
             // 
             // labelNamaJenis
             // 
@@ -240,6 +240,10 @@
         #endregion
 
         private DataGridView dgvJenisKeuangan;
+        private DataGridViewTextBoxColumn colNamaJenis;
+        private DataGridViewTextBoxColumn colKategori;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colIsDelete;
         private Panel panelInputJenisKeuangan;
         private ComboBox cmbKategoriJenis;
         private Button btnResetJenisKeuangan;
@@ -250,9 +254,5 @@
         private Label labelNamaJenis;
         private Label labelKategori;
         private Label labelJenisKeuangan;
-        private DataGridViewTextBoxColumn colNamaJenis;
-        private DataGridViewTextBoxColumn colKategori;
-        private DataGridViewTextBoxColumn colId;
-        private DataGridViewTextBoxColumn colIsDelete;
     }
 }

@@ -73,7 +73,7 @@
             dgvBudidayaTebu.ReadOnly = true;
             dgvBudidayaTebu.RowHeadersWidth = 51;
             dgvBudidayaTebu.Size = new Size(1950, 250);
-            dgvBudidayaTebu.TabIndex = 8;
+            dgvBudidayaTebu.TabIndex = 10;
             dgvBudidayaTebu.CellClick += dgvBudidayaTebu_CellClick;
             // 
             // colLokasi
@@ -181,7 +181,7 @@
             panelInputBudidayaTebu.Location = new Point(28, 60);
             panelInputBudidayaTebu.Name = "panelInputBudidayaTebu";
             panelInputBudidayaTebu.Size = new Size(850, 250);
-            panelInputBudidayaTebu.TabIndex = 7;
+            panelInputBudidayaTebu.TabIndex = 9;
             // 
             // dtpTanggalPanen
             // 
@@ -190,7 +190,7 @@
             dtpTanggalPanen.Location = new Point(466, 127);
             dtpTanggalPanen.Name = "dtpTanggalPanen";
             dtpTanggalPanen.Size = new Size(250, 27);
-            dtpTanggalPanen.TabIndex = 20;
+            dtpTanggalPanen.TabIndex = 5;
             // 
             // labelTanggalPanen
             // 
@@ -208,7 +208,7 @@
             checkBox1.Location = new Point(311, 127);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(122, 24);
-            checkBox1.TabIndex = 18;
+            checkBox1.TabIndex = 4;
             checkBox1.Text = "Sudah Panen?";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
@@ -221,7 +221,7 @@
             cmbStatusBudidaya.Location = new Point(466, 46);
             cmbStatusBudidaya.Name = "cmbStatusBudidaya";
             cmbStatusBudidaya.Size = new Size(200, 28);
-            cmbStatusBudidaya.TabIndex = 17;
+            cmbStatusBudidaya.TabIndex = 2;
             // 
             // label2
             // 
@@ -241,7 +241,7 @@
             cmbLahanBudidaya.Location = new Point(24, 45);
             cmbLahanBudidaya.Name = "cmbLahanBudidaya";
             cmbLahanBudidaya.Size = new Size(200, 28);
-            cmbLahanBudidaya.TabIndex = 13;
+            cmbLahanBudidaya.TabIndex = 0;
             // 
             // dtpTanggalTanam
             // 
@@ -249,7 +249,7 @@
             dtpTanggalTanam.Location = new Point(24, 127);
             dtpTanggalTanam.Name = "dtpTanggalTanam";
             dtpTanggalTanam.Size = new Size(250, 27);
-            dtpTanggalTanam.TabIndex = 12;
+            dtpTanggalTanam.TabIndex = 3;
             // 
             // labelTanggalTanam
             // 
@@ -270,7 +270,7 @@
             btnResetBudidayaTebu.Location = new Point(462, 198);
             btnResetBudidayaTebu.Name = "btnResetBudidayaTebu";
             btnResetBudidayaTebu.Size = new Size(105, 34);
-            btnResetBudidayaTebu.TabIndex = 11;
+            btnResetBudidayaTebu.TabIndex = 9;
             btnResetBudidayaTebu.Text = "Reset";
             btnResetBudidayaTebu.UseVisualStyleBackColor = false;
             btnResetBudidayaTebu.Click += btnResetBudidayaTebu_Click;
@@ -284,7 +284,7 @@
             btnHapusBudidayaTebu.Location = new Point(316, 198);
             btnHapusBudidayaTebu.Name = "btnHapusBudidayaTebu";
             btnHapusBudidayaTebu.Size = new Size(105, 34);
-            btnHapusBudidayaTebu.TabIndex = 10;
+            btnHapusBudidayaTebu.TabIndex = 8;
             btnHapusBudidayaTebu.Text = "Hapus";
             btnHapusBudidayaTebu.UseVisualStyleBackColor = false;
             btnHapusBudidayaTebu.Click += btnHapusBudidayaTebu_Click;
@@ -298,7 +298,7 @@
             btnUbahBudidayaTebu.Location = new Point(171, 198);
             btnUbahBudidayaTebu.Name = "btnUbahBudidayaTebu";
             btnUbahBudidayaTebu.Size = new Size(105, 34);
-            btnUbahBudidayaTebu.TabIndex = 9;
+            btnUbahBudidayaTebu.TabIndex = 7;
             btnUbahBudidayaTebu.Text = "Ubah";
             btnUbahBudidayaTebu.UseVisualStyleBackColor = false;
             btnUbahBudidayaTebu.Click += btnUbahBudidayaTebu_Click;
@@ -312,7 +312,7 @@
             btnTambahBudidayaTebu.Location = new Point(24, 198);
             btnTambahBudidayaTebu.Name = "btnTambahBudidayaTebu";
             btnTambahBudidayaTebu.Size = new Size(105, 34);
-            btnTambahBudidayaTebu.TabIndex = 5;
+            btnTambahBudidayaTebu.TabIndex = 6;
             btnTambahBudidayaTebu.Text = "Tambah";
             btnTambahBudidayaTebu.UseVisualStyleBackColor = false;
             btnTambahBudidayaTebu.Click += btnTambahBudidayaTebu_Click;
@@ -325,7 +325,7 @@
             txtJumlahtebu.Location = new Point(271, 46);
             txtJumlahtebu.Name = "txtJumlahtebu";
             txtJumlahtebu.Size = new Size(150, 27);
-            txtJumlahtebu.TabIndex = 8;
+            txtJumlahtebu.TabIndex = 1;
             // 
             // labelJumlahTebu
             // 

@@ -53,6 +53,11 @@ namespace SIFAT.Views
                 dgvKeuangan.AutoGenerateColumns = false;
                 dgvKeuangan.DataSource = list;
 
+                if (dgvKeuangan.Columns["NamaPengguna"] != null)
+                {
+                    dgvKeuangan.Columns["NamaPengguna"].Visible = (_userLogin.Role == "Petani");
+                }
+
                 AturTinggiTabel();
             }
             catch (Exception ex)

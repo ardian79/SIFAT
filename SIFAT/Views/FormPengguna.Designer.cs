@@ -88,7 +88,7 @@
             btnResetPengguna.Location = new Point(462, 98);
             btnResetPengguna.Name = "btnResetPengguna";
             btnResetPengguna.Size = new Size(105, 34);
-            btnResetPengguna.TabIndex = 11;
+            btnResetPengguna.TabIndex = 6;
             btnResetPengguna.Text = "Reset";
             btnResetPengguna.UseVisualStyleBackColor = false;
             btnResetPengguna.Click += btnResetPengguna_Click;
@@ -102,7 +102,7 @@
             btnHapusPengguna.Location = new Point(316, 98);
             btnHapusPengguna.Name = "btnHapusPengguna";
             btnHapusPengguna.Size = new Size(105, 34);
-            btnHapusPengguna.TabIndex = 10;
+            btnHapusPengguna.TabIndex = 5;
             btnHapusPengguna.Text = "Hapus";
             btnHapusPengguna.UseVisualStyleBackColor = false;
             btnHapusPengguna.Click += btnHapusPengguna_Click;
@@ -116,7 +116,7 @@
             btnUbahPengguna.Location = new Point(171, 98);
             btnUbahPengguna.Name = "btnUbahPengguna";
             btnUbahPengguna.Size = new Size(105, 34);
-            btnUbahPengguna.TabIndex = 9;
+            btnUbahPengguna.TabIndex = 4;
             btnUbahPengguna.Text = "Ubah";
             btnUbahPengguna.UseVisualStyleBackColor = false;
             btnUbahPengguna.Click += btnUbahPengguna_Click;
@@ -130,7 +130,7 @@
             btnTambahPengguna.Location = new Point(24, 98);
             btnTambahPengguna.Name = "btnTambahPengguna";
             btnTambahPengguna.Size = new Size(105, 34);
-            btnTambahPengguna.TabIndex = 5;
+            btnTambahPengguna.TabIndex = 3;
             btnTambahPengguna.Text = "Tambah";
             btnTambahPengguna.UseVisualStyleBackColor = false;
             btnTambahPengguna.Click += btnTambahPengguna_Click;
@@ -144,7 +144,7 @@
             txtPasswordPengguna.Name = "txtPasswordPengguna";
             txtPasswordPengguna.PasswordChar = '*';
             txtPasswordPengguna.Size = new Size(200, 27);
-            txtPasswordPengguna.TabIndex = 8;
+            txtPasswordPengguna.TabIndex = 2;
             // 
             // txtUsernamePengguna
             // 
@@ -154,7 +154,7 @@
             txtUsernamePengguna.Location = new Point(273, 45);
             txtUsernamePengguna.Name = "txtUsernamePengguna";
             txtUsernamePengguna.Size = new Size(200, 27);
-            txtUsernamePengguna.TabIndex = 6;
+            txtUsernamePengguna.TabIndex = 1;
             // 
             // labelUsername
             // 
@@ -174,7 +174,7 @@
             txtNamaLengkapPengguna.Location = new Point(24, 45);
             txtNamaLengkapPengguna.Name = "txtNamaLengkapPengguna";
             txtNamaLengkapPengguna.Size = new Size(200, 27);
-            txtNamaLengkapPengguna.TabIndex = 4;
+            txtNamaLengkapPengguna.TabIndex = 0;
             // 
             // labelNamaLengkap
             // 
@@ -210,7 +210,7 @@
             dgvPengguna.ReadOnly = true;
             dgvPengguna.RowHeadersWidth = 51;
             dgvPengguna.Size = new Size(1950, 250);
-            dgvPengguna.TabIndex = 5;
+            dgvPengguna.TabIndex = 7;
             dgvPengguna.CellClick += dgvPengguna_CellClick;
             // 
             // colNamaLengkap

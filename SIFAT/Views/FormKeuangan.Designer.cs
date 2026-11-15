@@ -70,7 +70,7 @@
             dgvKeuangan.ReadOnly = true;
             dgvKeuangan.RowHeadersWidth = 51;
             dgvKeuangan.Size = new Size(1950, 250);
-            dgvKeuangan.TabIndex = 5;
+            dgvKeuangan.TabIndex = 8;
             dgvKeuangan.CellClick += dgvKeuangan_CellClick;
             // 
             // colTanggal
@@ -185,7 +185,7 @@
             txtKeteranganKeuangan.Location = new Point(774, 46);
             txtKeteranganKeuangan.Name = "txtKeteranganKeuangan";
             txtKeteranganKeuangan.Size = new Size(250, 27);
-            txtKeteranganKeuangan.TabIndex = 15;
+            txtKeteranganKeuangan.TabIndex = 3;
             // 
             // label1
             // 
@@ -205,7 +205,7 @@
             cmbJenisKeuangan.Location = new Point(325, 45);
             cmbJenisKeuangan.Name = "cmbJenisKeuangan";
             cmbJenisKeuangan.Size = new Size(200, 28);
-            cmbJenisKeuangan.TabIndex = 13;
+            cmbJenisKeuangan.TabIndex = 1;
             // 
             // dtpTanggalKeuangan
             // 
@@ -213,7 +213,7 @@
             dtpTanggalKeuangan.Location = new Point(24, 45);
             dtpTanggalKeuangan.Name = "dtpTanggalKeuangan";
             dtpTanggalKeuangan.Size = new Size(250, 27);
-            dtpTanggalKeuangan.TabIndex = 12;
+            dtpTanggalKeuangan.TabIndex = 0;
             // 
             // btnResetKeuangan
             // 
@@ -224,7 +224,7 @@
             btnResetKeuangan.Location = new Point(462, 98);
             btnResetKeuangan.Name = "btnResetKeuangan";
             btnResetKeuangan.Size = new Size(105, 34);
-            btnResetKeuangan.TabIndex = 11;
+            btnResetKeuangan.TabIndex = 7;
             btnResetKeuangan.Text = "Reset";
             btnResetKeuangan.UseVisualStyleBackColor = false;
             btnResetKeuangan.Click += btnResetKeuangan_Click;
@@ -238,7 +238,7 @@
             btnHapusKeuangan.Location = new Point(316, 98);
             btnHapusKeuangan.Name = "btnHapusKeuangan";
             btnHapusKeuangan.Size = new Size(105, 34);
-            btnHapusKeuangan.TabIndex = 10;
+            btnHapusKeuangan.TabIndex = 6;
             btnHapusKeuangan.Text = "Hapus";
             btnHapusKeuangan.UseVisualStyleBackColor = false;
             btnHapusKeuangan.Click += btnHapusKeuangan_Click;
@@ -252,7 +252,7 @@
             btnUbahKeuangan.Location = new Point(171, 98);
             btnUbahKeuangan.Name = "btnUbahKeuangan";
             btnUbahKeuangan.Size = new Size(105, 34);
-            btnUbahKeuangan.TabIndex = 9;
+            btnUbahKeuangan.TabIndex = 5;
             btnUbahKeuangan.Text = "Ubah";
             btnUbahKeuangan.UseVisualStyleBackColor = false;
             btnUbahKeuangan.Click += btnUbahKeuangan_Click;
@@ -266,7 +266,7 @@
             btnTambahKeuangan.Location = new Point(24, 98);
             btnTambahKeuangan.Name = "btnTambahKeuangan";
             btnTambahKeuangan.Size = new Size(105, 34);
-            btnTambahKeuangan.TabIndex = 5;
+            btnTambahKeuangan.TabIndex = 4;
             btnTambahKeuangan.Text = "Tambah";
             btnTambahKeuangan.UseVisualStyleBackColor = false;
             btnTambahKeuangan.Click += btnTambahKeuangan_Click;
@@ -279,7 +279,7 @@
             txtJumlahKeuangan.Location = new Point(574, 46);
             txtJumlahKeuangan.Name = "txtJumlahKeuangan";
             txtJumlahKeuangan.Size = new Size(150, 27);
-            txtJumlahKeuangan.TabIndex = 8;
+            txtJumlahKeuangan.TabIndex = 2;
             // 
             // labelJumlah
             // 
