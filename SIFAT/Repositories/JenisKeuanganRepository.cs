@@ -6,7 +6,7 @@ using SIFAT.Models;
 
 namespace SIFAT.Repositories
 {
-    public class JenisKeuanganRepository
+    public class JenisKeuanganRepository : IRepository<JenisKeuangan>
     {
         public void Insert(JenisKeuangan jenis)
         {

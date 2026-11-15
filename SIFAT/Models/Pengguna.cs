@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SIFAT.Models
 {
-    public class Pengguna
+    public abstract class Pengguna
     {
         public int Id { get; set; }
         public string Username { get; set; }
@@ -19,6 +19,34 @@ namespace SIFAT.Models
             Password = string.Empty;
             NamaLengkap = string.Empty;
             Role = string.Empty;
+        }
+
+        public abstract string GetHakAkses();
+    }
+
+    public class Petani : Pengguna
+    {
+        public Petani()
+        {
+            Role = "Petani";
+        }
+
+        public override string GetHakAkses()
+        {
+            return "Akses Penuh";
+        }
+    }
+
+    public class BuruhTani : Pengguna
+    {
+        public BuruhTani()
+        {
+            Role = "Buruh Tani";
+        }
+
+        public override string GetHakAkses()
+        {
+            return "Akses Terbatas";
         }
     }
 }

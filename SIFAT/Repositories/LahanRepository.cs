@@ -6,7 +6,7 @@ using SIFAT.Models;
 
 namespace SIFAT.Repositories
 {
-    public class LahanRepository
+    public class LahanRepository : IRepository<Lahan>
     {
         public void Insert(Lahan lahan)
         {

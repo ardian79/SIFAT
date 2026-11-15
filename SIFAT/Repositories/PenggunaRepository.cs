@@ -6,7 +6,7 @@ using SIFAT.Models;
 
 namespace SIFAT.Repositories
 {
-    public class PenggunaRepository
+    public class PenggunaRepository : IRepository<Pengguna>
     {
         public Pengguna Login(string username, string password)
         {
@@ -23,14 +23,21 @@ namespace SIFAT.Repositories
                     {
                         if (reader.Read())
                         {
-                            user = new Pengguna
+                            string roleDb = reader["role"].ToString();
+
+                            if (roleDb == "Petani")
                             {
-                                Id = Convert.ToInt32(reader["id"]),
-                                Username = reader["username"].ToString(),
-                                Password = reader["password"].ToString(),
-                                NamaLengkap = reader["nama_lengkap"].ToString(),
-                                Role = reader["role"].ToString()
-                            };
+                                user = new Petani();
+                            }
+                            else
+                            {
+                                user = new BuruhTani();
+                            }
+
+                            user.Id = Convert.ToInt32(reader["id"]);
+                            user.Username = reader["username"].ToString();
+                            user.Password = reader["password"].ToString();
+                            user.NamaLengkap = reader["nama_lengkap"].ToString();
                         }
                     }
                 }
@@ -38,7 +45,7 @@ namespace SIFAT.Repositories
             return user;
         }
 
-        public void InsertBuruh(Pengguna pengguna)
+        public void Insert(Pengguna pengguna)
         {
             using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
             {
@@ -54,7 +61,7 @@ namespace SIFAT.Repositories
             }
         }
 
-        public List<Pengguna> GetAllBuruh()
+        public List<Pengguna> GetAll()
         {
             List<Pengguna> list = new List<Pengguna>();
             using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
@@ -67,7 +74,7 @@ namespace SIFAT.Repositories
                     {
                         while (reader.Read())
                         {
-                            list.Add(new Pengguna
+                            list.Add(new BuruhTani
                             {
                                 Id = Convert.ToInt32(reader["id"]),
                                 Username = reader["username"].ToString(),
@@ -82,7 +89,7 @@ namespace SIFAT.Repositories
             return list;
         }
 
-        public void UpdateBuruh(Pengguna pengguna)
+        public void Update(Pengguna pengguna)
         {
             using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
             {
@@ -99,7 +106,7 @@ namespace SIFAT.Repositories
             }
         }
 
-        public void DeleteBuruh(int id)
+        public void Delete(int id)
         {
             using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
             {

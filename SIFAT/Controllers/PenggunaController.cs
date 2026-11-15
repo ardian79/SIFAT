@@ -17,14 +17,14 @@ namespace SIFAT.Controllers
                 return "Semua kolom wajib diisi!";
             }
 
-            Pengguna buruh = new Pengguna
+            Pengguna buruh = new BuruhTani
             {
                 NamaLengkap = nama,
                 Username = username,
                 Password = password
             };
 
-            _repo.InsertBuruh(buruh);
+            _repo.Insert(buruh);
             return "OK";
         }
 
@@ -35,7 +35,7 @@ namespace SIFAT.Controllers
                 return "Semua kolom wajib diisi!";
             }
 
-            Pengguna buruh = new Pengguna
+            Pengguna buruh = new BuruhTani
             {
                 Id = id,
                 NamaLengkap = nama,
@@ -43,18 +43,18 @@ namespace SIFAT.Controllers
                 Password = password
             };
 
-            _repo.UpdateBuruh(buruh);
+            _repo.Update(buruh);
             return "OK";
         }
 
         public void NonaktifkanBuruh(int id)
         {
-            _repo.DeleteBuruh(id);
+            _repo.Delete(id);
         }
 
         public List<Pengguna> GetAllBuruh()
         {
-            return _repo.GetAllBuruh();
+            return _repo.GetAll();
         }
     }
 }
