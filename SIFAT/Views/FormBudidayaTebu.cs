@@ -13,15 +13,18 @@ namespace SIFAT.Views
     public partial class FormBudidayaTebu : Form
     {
         private BudidayaTebuController _controller = new BudidayaTebuController();
+        private Pengguna _userLogin;
         private int _selectedId = 0;
 
-        public FormBudidayaTebu()
+        public FormBudidayaTebu(Pengguna user)
         {
             InitializeComponent();
             this.TopLevel = false;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Dock = DockStyle.Fill;
             this.ForeColor = Color.Black;
+
+            _userLogin = user;
 
             LoadComboLahan();
             LoadComboStatus();
@@ -55,17 +58,13 @@ namespace SIFAT.Views
             try
             {
                 List<BudidayaTebu> list = _controller.GetAllBudidaya();
+                dgvBudidayaTebu.AutoGenerateColumns = false;
                 dgvBudidayaTebu.DataSource = list;
 
-                if (dgvBudidayaTebu.Columns["Id"] != null) dgvBudidayaTebu.Columns["Id"].Visible = false;
-                if (dgvBudidayaTebu.Columns["IdLahan"] != null) dgvBudidayaTebu.Columns["IdLahan"].Visible = false;
-                if (dgvBudidayaTebu.Columns["IsDelete"] != null) dgvBudidayaTebu.Columns["IsDelete"].Visible = false;
-
-                if (dgvBudidayaTebu.Columns["NamaLokasi"] != null) dgvBudidayaTebu.Columns["NamaLokasi"].HeaderText = "Lokasi Lahan";
-                if (dgvBudidayaTebu.Columns["TanggalTanam"] != null) dgvBudidayaTebu.Columns["TanggalTanam"].HeaderText = "Tgl Tanam";
-                if (dgvBudidayaTebu.Columns["TanggalPanen"] != null) dgvBudidayaTebu.Columns["TanggalPanen"].HeaderText = "Tgl Panen";
-                if (dgvBudidayaTebu.Columns["JumlahTebu"] != null) dgvBudidayaTebu.Columns["JumlahTebu"].HeaderText = "Jumlah Tebu";
-                if (dgvBudidayaTebu.Columns["Status"] != null) dgvBudidayaTebu.Columns["Status"].HeaderText = "Status";
+                if (dgvBudidayaTebu.Columns["NamaPengguna"] != null)
+                {
+                    dgvBudidayaTebu.Columns["NamaPengguna"].Visible = (_userLogin.Role == "Petani");
+                }
 
                 AturTinggiTabel();
             }
@@ -119,7 +118,7 @@ namespace SIFAT.Views
 
             int idLahan = Convert.ToInt32(cmbLahanBudidaya.SelectedValue);
             string status = cmbStatusBudidaya.SelectedItem.ToString();
-            string pesan = _controller.TambahBudidaya(idLahan, dtpTanggalTanam.Value, checkBox1.Checked, dtpTanggalPanen.Value, txtJumlahtebu.Text, status);
+            string pesan = _controller.TambahBudidaya(idLahan, _userLogin.Id, dtpTanggalTanam.Value, checkBox1.Checked, dtpTanggalPanen.Value, txtJumlahtebu.Text, status);
 
             if (pesan == "OK")
             {

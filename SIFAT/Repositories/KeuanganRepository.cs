@@ -32,7 +32,12 @@ namespace SIFAT.Repositories
             using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
             {
                 conn.Open();
-                string query = @"SELECT k.id, k.id_pengguna, k.id_jenis_keuangan, k.tanggal, k.jumlah, k.keterangan, j.nama_jenis, j.kategori FROM keuangan k JOIN jenis_keuangan j ON k.id_jenis_keuangan = j.id WHERE k.is_delete = false ORDER BY k.tanggal DESC, k.id DESC";
+                string query = @"SELECT k.id, k.id_pengguna, k.id_jenis_keuangan, k.tanggal, k.jumlah, k.keterangan, 
+                                 j.nama_jenis, j.kategori, p.nama_lengkap 
+                                 FROM keuangan k 
+                                 JOIN jenis_keuangan j ON k.id_jenis_keuangan = j.id 
+                                 JOIN pengguna p ON k.id_pengguna = p.id
+                                 WHERE k.is_delete = false ORDER BY k.tanggal DESC, k.id DESC";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                 {
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
@@ -48,7 +53,8 @@ namespace SIFAT.Repositories
                                 Jumlah = Convert.ToDecimal(reader["jumlah"]),
                                 Keterangan = reader["keterangan"].ToString(),
                                 NamaJenis = reader["nama_jenis"].ToString(),
-                                Kategori = reader["kategori"].ToString()
+                                Kategori = reader["kategori"].ToString(),
+                                NamaPengguna = reader["nama_lengkap"].ToString()
                             });
                         }
                     }

@@ -11,7 +11,7 @@ namespace SIFAT.Controllers
         private BudidayaTebuRepository _repo = new BudidayaTebuRepository();
         private LahanRepository _repoLahan = new LahanRepository();
 
-        public string TambahBudidaya(int idLahan, DateTime tglTanam, bool sudahPanen, DateTime tglPanen, string jumlahStr, string status)
+        public string TambahBudidaya(int idLahan, int idPengguna, DateTime tglTanam, bool sudahPanen, DateTime tglPanen, string jumlahStr, string status)
         {
             if (idLahan == 0 || string.IsNullOrWhiteSpace(jumlahStr))
             {
@@ -26,6 +26,7 @@ namespace SIFAT.Controllers
             BudidayaTebu data = new BudidayaTebu
             {
                 IdLahan = idLahan,
+                IdPengguna = idPengguna,
                 TanggalTanam = tglTanam,
                 TanggalPanen = sudahPanen ? tglPanen : (DateTime?)null,
                 JumlahTebu = jumlah,

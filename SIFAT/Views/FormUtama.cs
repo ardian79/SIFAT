@@ -74,7 +74,7 @@ namespace SIFAT.Views
 
         private void btnBudidaya_Click(object sender, EventArgs e)
         {
-            BukaForm(new FormBudidayaTebu());
+            BukaForm(new FormBudidayaTebu(_userLogin));
         }
 
         private void btnBuruh_Click(object sender, EventArgs e)

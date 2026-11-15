@@ -35,6 +35,7 @@ CREATE TABLE keuangan (
 CREATE TABLE budidaya_tebu (
     id SERIAL PRIMARY KEY,
     id_lahan INT REFERENCES lahan(id),
+    id_pengguna INT REFERENCES pengguna(id),
     tanggal_tanam DATE NOT NULL,
     tanggal_panen DATE,
     jumlah_tebu INT NOT NULL,

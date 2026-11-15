@@ -34,6 +34,7 @@
             colKategori = new DataGridViewTextBoxColumn();
             colJumlah = new DataGridViewTextBoxColumn();
             colKeterangan = new DataGridViewTextBoxColumn();
+            colNamaPengguna = new DataGridViewTextBoxColumn();
             colId = new DataGridViewTextBoxColumn();
             colIdPengguna = new DataGridViewTextBoxColumn();
             colIdJenisKeuangan = new DataGridViewTextBoxColumn();
@@ -63,7 +64,7 @@
             dgvKeuangan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvKeuangan.BackgroundColor = Color.White;
             dgvKeuangan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvKeuangan.Columns.AddRange(new DataGridViewColumn[] { colTanggal, colNamaJenis, colKategori, colJumlah, colKeterangan, colId, colIdPengguna, colIdJenisKeuangan, colIsDelete });
+            dgvKeuangan.Columns.AddRange(new DataGridViewColumn[] { colTanggal, colNamaJenis, colKategori, colJumlah, colKeterangan, colNamaPengguna, colId, colIdPengguna, colIdJenisKeuangan, colIsDelete });
             dgvKeuangan.Location = new Point(28, 230);
             dgvKeuangan.Name = "dgvKeuangan";
             dgvKeuangan.ReadOnly = true;
@@ -111,6 +112,14 @@
             colKeterangan.MinimumWidth = 6;
             colKeterangan.Name = "Keterangan";
             colKeterangan.ReadOnly = true;
+            // 
+            // colNamaPengguna
+            // 
+            colNamaPengguna.DataPropertyName = "NamaPengguna";
+            colNamaPengguna.HeaderText = "Diinput Oleh";
+            colNamaPengguna.MinimumWidth = 6;
+            colNamaPengguna.Name = "NamaPengguna";
+            colNamaPengguna.ReadOnly = true;
             // 
             // colId
             // 
@@ -352,6 +361,7 @@
         private DataGridViewTextBoxColumn colKategori;
         private DataGridViewTextBoxColumn colJumlah;
         private DataGridViewTextBoxColumn colKeterangan;
+        private DataGridViewTextBoxColumn colNamaPengguna;
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colIdPengguna;
         private DataGridViewTextBoxColumn colIdJenisKeuangan;

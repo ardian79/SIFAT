@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             dgvBudidayaTebu = new DataGridView();
+            colLokasi = new DataGridViewTextBoxColumn();
+            colTglTanam = new DataGridViewTextBoxColumn();
+            colTglPanen = new DataGridViewTextBoxColumn();
+            colJumlah = new DataGridViewTextBoxColumn();
+            colStatus = new DataGridViewTextBoxColumn();
+            colNamaPengguna = new DataGridViewTextBoxColumn();
+            colId = new DataGridViewTextBoxColumn();
+            colIdLahan = new DataGridViewTextBoxColumn();
+            colIdPengguna = new DataGridViewTextBoxColumn();
+            colIsDelete = new DataGridViewTextBoxColumn();
             panelInputBudidayaTebu = new Panel();
             dtpTanggalPanen = new DateTimePicker();
             labelTanggalPanen = new Label();
@@ -57,6 +67,7 @@
             dgvBudidayaTebu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBudidayaTebu.BackgroundColor = Color.White;
             dgvBudidayaTebu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBudidayaTebu.Columns.AddRange(new DataGridViewColumn[] { colLokasi, colTglTanam, colTglPanen, colJumlah, colStatus, colNamaPengguna, colId, colIdLahan, colIdPengguna, colIsDelete });
             dgvBudidayaTebu.Location = new Point(28, 330);
             dgvBudidayaTebu.Name = "dgvBudidayaTebu";
             dgvBudidayaTebu.ReadOnly = true;
@@ -64,6 +75,90 @@
             dgvBudidayaTebu.Size = new Size(1950, 250);
             dgvBudidayaTebu.TabIndex = 8;
             dgvBudidayaTebu.CellClick += dgvBudidayaTebu_CellClick;
+            // 
+            // colLokasi
+            // 
+            colLokasi.DataPropertyName = "NamaLokasi";
+            colLokasi.HeaderText = "Lokasi Lahan";
+            colLokasi.MinimumWidth = 6;
+            colLokasi.Name = "NamaLokasi";
+            colLokasi.ReadOnly = true;
+            // 
+            // colTglTanam
+            // 
+            colTglTanam.DataPropertyName = "TanggalTanam";
+            colTglTanam.HeaderText = "Tanggal Tanam";
+            colTglTanam.MinimumWidth = 6;
+            colTglTanam.Name = "TanggalTanam";
+            colTglTanam.ReadOnly = true;
+            // 
+            // colTglPanen
+            // 
+            colTglPanen.DataPropertyName = "TanggalPanen";
+            colTglPanen.HeaderText = "Tanggal Panen";
+            colTglPanen.MinimumWidth = 6;
+            colTglPanen.Name = "TanggalPanen";
+            colTglPanen.ReadOnly = true;
+            // 
+            // colJumlah
+            // 
+            colJumlah.DataPropertyName = "JumlahTebu";
+            colJumlah.HeaderText = "Jumlah Tebu";
+            colJumlah.MinimumWidth = 6;
+            colJumlah.Name = "JumlahTebu";
+            colJumlah.ReadOnly = true;
+            // 
+            // colStatus
+            // 
+            colStatus.DataPropertyName = "Status";
+            colStatus.HeaderText = "Status";
+            colStatus.MinimumWidth = 6;
+            colStatus.Name = "Status";
+            colStatus.ReadOnly = true;
+            // 
+            // colNamaPengguna
+            // 
+            colNamaPengguna.DataPropertyName = "NamaPengguna";
+            colNamaPengguna.HeaderText = "Diinput Oleh";
+            colNamaPengguna.MinimumWidth = 6;
+            colNamaPengguna.Name = "NamaPengguna";
+            colNamaPengguna.ReadOnly = true;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "Id";
+            colId.MinimumWidth = 6;
+            colId.Name = "Id";
+            colId.ReadOnly = true;
+            colId.Visible = false;
+            // 
+            // colIdLahan
+            // 
+            colIdLahan.DataPropertyName = "IdLahan";
+            colIdLahan.HeaderText = "IdLahan";
+            colIdLahan.MinimumWidth = 6;
+            colIdLahan.Name = "IdLahan";
+            colIdLahan.ReadOnly = true;
+            colIdLahan.Visible = false;
+            // 
+            // colIdPengguna
+            // 
+            colIdPengguna.DataPropertyName = "IdPengguna";
+            colIdPengguna.HeaderText = "IdPengguna";
+            colIdPengguna.MinimumWidth = 6;
+            colIdPengguna.Name = "IdPengguna";
+            colIdPengguna.ReadOnly = true;
+            colIdPengguna.Visible = false;
+            // 
+            // colIsDelete
+            // 
+            colIsDelete.DataPropertyName = "IsDelete";
+            colIsDelete.HeaderText = "IsDelete";
+            colIsDelete.MinimumWidth = 6;
+            colIsDelete.Name = "IsDelete";
+            colIsDelete.ReadOnly = true;
+            colIsDelete.Visible = false;
             // 
             // panelInputBudidayaTebu
             // 
@@ -300,5 +395,15 @@
         private CheckBox checkBox1;
         private DateTimePicker dtpTanggalPanen;
         private Label labelTanggalPanen;
+        private DataGridViewTextBoxColumn colLokasi;
+        private DataGridViewTextBoxColumn colTglTanam;
+        private DataGridViewTextBoxColumn colTglPanen;
+        private DataGridViewTextBoxColumn colJumlah;
+        private DataGridViewTextBoxColumn colStatus;
+        private DataGridViewTextBoxColumn colNamaPengguna;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colIdLahan;
+        private DataGridViewTextBoxColumn colIdPengguna;
+        private DataGridViewTextBoxColumn colIsDelete;
     }
 }

@@ -10,6 +10,7 @@ namespace SIFAT.Models
     {
         public int Id { get; set; }
         public int IdLahan { get; set; }
+        public int IdPengguna { get; set; }
         public DateTime TanggalTanam { get; set; }
         public DateTime? TanggalPanen { get; set; }
         public int JumlahTebu { get; set; }
@@ -17,11 +18,13 @@ namespace SIFAT.Models
         public bool IsDelete { get; set; }
 
         public string NamaLokasi { get; set; }
+        public string NamaPengguna { get; set; }
 
         public BudidayaTebu()
         {
             Status = string.Empty;
             NamaLokasi = string.Empty;
+            NamaPengguna = string.Empty;
         }
     }
 }

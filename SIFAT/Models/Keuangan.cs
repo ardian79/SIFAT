@@ -18,12 +18,14 @@ namespace SIFAT.Models
 
         public string NamaJenis { get; set; }
         public string Kategori { get; set; }
+        public string NamaPengguna { get; set; }
 
         public Keuangan()
         {
             Keterangan = string.Empty;
             NamaJenis = string.Empty;
             Kategori = string.Empty;
+            NamaPengguna = string.Empty;
         }
     }
 }
