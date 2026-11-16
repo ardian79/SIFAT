@@ -80,18 +80,20 @@
             tableLayoutDashboard.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 744F));
             tableLayoutDashboard.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutDashboard.Controls.Add(lblSelamatDatang, 0, 0);
-            tableLayoutDashboard.Controls.Add(panelTengah, 1, 1);
-            tableLayoutDashboard.Controls.Add(lblRiwayat, 0, 2);
-            tableLayoutDashboard.Controls.Add(dgvTransaksiTerbaru, 0, 3);
+            tableLayoutDashboard.Controls.Add(panelTengah, 1, 2);
+            tableLayoutDashboard.Controls.Add(lblRiwayat, 0, 3);
+            tableLayoutDashboard.Controls.Add(dgvTransaksiTerbaru, 0, 4);
             tableLayoutDashboard.Dock = DockStyle.Fill;
             tableLayoutDashboard.Location = new Point(0, 0);
             tableLayoutDashboard.Margin = new Padding(3, 2, 3, 2);
             tableLayoutDashboard.Name = "tableLayoutDashboard";
-            tableLayoutDashboard.RowCount = 4;
+            tableLayoutDashboard.RowCount = 6;
             tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
             tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tableLayoutDashboard.RowStyles.Add(new RowStyle());
+            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 150F));
+            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutDashboard.Size = new Size(1163, 485);
             tableLayoutDashboard.TabIndex = 5;
             // 
@@ -101,7 +103,7 @@
             panelTengah.Controls.Add(panelPemasukan);
             panelTengah.Controls.Add(panelPengeluaran);
             panelTengah.Dock = DockStyle.Fill;
-            panelTengah.Location = new Point(212, 62);
+            panelTengah.Location = new Point(212, 152);
             panelTengah.Margin = new Padding(3, 2, 3, 2);
             panelTengah.Name = "panelTengah";
             panelTengah.Size = new Size(738, 116);
@@ -211,7 +213,7 @@
             tableLayoutDashboard.SetColumnSpan(lblRiwayat, 3);
             lblRiwayat.Dock = DockStyle.Fill;
             lblRiwayat.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblRiwayat.Location = new Point(3, 180);
+            lblRiwayat.Location = new Point(3, 270);
             lblRiwayat.Name = "lblRiwayat";
             lblRiwayat.Padding = new Padding(18, 0, 0, 0);
             lblRiwayat.Size = new Size(1157, 30);
@@ -227,14 +229,14 @@
             dgvTransaksiTerbaru.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTransaksiTerbaru.Columns.AddRange(new DataGridViewColumn[] { colTanggal, colNamaJenis, colKategori, colJumlah, colKeterangan, colNamaPengguna, colId, colIdPengguna, colIdJenisKeuangan, colIsDelete });
             tableLayoutDashboard.SetColumnSpan(dgvTransaksiTerbaru, 3);
-            dgvTransaksiTerbaru.Dock = DockStyle.Top;
-            dgvTransaksiTerbaru.Location = new Point(18, 225);
+            dgvTransaksiTerbaru.Dock = DockStyle.Fill;
+            dgvTransaksiTerbaru.Location = new Point(18, 315);
             dgvTransaksiTerbaru.Margin = new Padding(18, 15, 18, 0);
             dgvTransaksiTerbaru.Name = "dgvTransaksiTerbaru";
             dgvTransaksiTerbaru.ReadOnly = true;
             dgvTransaksiTerbaru.RowHeadersWidth = 51;
             dgvTransaksiTerbaru.ScrollBars = ScrollBars.Horizontal;
-            dgvTransaksiTerbaru.Size = new Size(1127, 112);
+            dgvTransaksiTerbaru.Size = new Size(1127, 135);
             dgvTransaksiTerbaru.TabIndex = 10;
             // 
             // colTanggal
