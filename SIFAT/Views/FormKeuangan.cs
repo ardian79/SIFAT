@@ -82,8 +82,7 @@ namespace SIFAT.Views
             }
             if (hasHScroll) totalHeight += SystemInformation.HorizontalScrollBarHeight;
 
-            int maxHeight = this.ClientSize.Height - dgvKeuangan.Top - 20;
-            dgvKeuangan.Height = Math.Min(totalHeight, maxHeight);
+            dgvKeuangan.Height = totalHeight;
             dgvKeuangan.BackgroundColor = Color.White;
         }
 

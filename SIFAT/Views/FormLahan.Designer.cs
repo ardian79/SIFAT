@@ -55,14 +55,15 @@
             labelLahan.AutoSize = true;
             labelLahan.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelLahan.ForeColor = Color.FromArgb(30, 41, 59);
-            labelLahan.Location = new Point(20, 20);
+            labelLahan.Location = new Point(18, 15);
             labelLahan.Name = "labelLahan";
-            labelLahan.Size = new Size(328, 38);
+            labelLahan.Size = new Size(256, 30);
             labelLahan.TabIndex = 0;
             labelLahan.Text = "Manajemen Data Lahan";
             // 
             // panelInputLahan
             // 
+            panelInputLahan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelInputLahan.BackColor = Color.Transparent;
             panelInputLahan.Controls.Add(btnResetLahan);
             panelInputLahan.Controls.Add(btnHapusLahan);
@@ -74,9 +75,10 @@
             panelInputLahan.Controls.Add(labelLuas);
             panelInputLahan.Controls.Add(txtNamaLahan);
             panelInputLahan.Controls.Add(labelLokasi);
-            panelInputLahan.Location = new Point(28, 60);
+            panelInputLahan.Location = new Point(24, 45);
+            panelInputLahan.Margin = new Padding(3, 2, 3, 2);
             panelInputLahan.Name = "panelInputLahan";
-            panelInputLahan.Size = new Size(850, 150);
+            panelInputLahan.Size = new Size(1112, 112);
             panelInputLahan.TabIndex = 1;
             // 
             // btnResetLahan
@@ -85,9 +87,10 @@
             btnResetLahan.Cursor = Cursors.Hand;
             btnResetLahan.FlatStyle = FlatStyle.Flat;
             btnResetLahan.ForeColor = Color.White;
-            btnResetLahan.Location = new Point(462, 98);
+            btnResetLahan.Location = new Point(404, 73);
+            btnResetLahan.Margin = new Padding(3, 2, 3, 2);
             btnResetLahan.Name = "btnResetLahan";
-            btnResetLahan.Size = new Size(105, 34);
+            btnResetLahan.Size = new Size(92, 26);
             btnResetLahan.TabIndex = 6;
             btnResetLahan.Text = "Reset";
             btnResetLahan.UseVisualStyleBackColor = false;
@@ -99,9 +102,10 @@
             btnHapusLahan.Cursor = Cursors.Hand;
             btnHapusLahan.FlatStyle = FlatStyle.Flat;
             btnHapusLahan.ForeColor = Color.White;
-            btnHapusLahan.Location = new Point(316, 98);
+            btnHapusLahan.Location = new Point(276, 73);
+            btnHapusLahan.Margin = new Padding(3, 2, 3, 2);
             btnHapusLahan.Name = "btnHapusLahan";
-            btnHapusLahan.Size = new Size(105, 34);
+            btnHapusLahan.Size = new Size(92, 26);
             btnHapusLahan.TabIndex = 5;
             btnHapusLahan.Text = "Hapus";
             btnHapusLahan.UseVisualStyleBackColor = false;
@@ -113,9 +117,10 @@
             btnUbahLahan.Cursor = Cursors.Hand;
             btnUbahLahan.FlatStyle = FlatStyle.Flat;
             btnUbahLahan.ForeColor = Color.White;
-            btnUbahLahan.Location = new Point(171, 98);
+            btnUbahLahan.Location = new Point(150, 73);
+            btnUbahLahan.Margin = new Padding(3, 2, 3, 2);
             btnUbahLahan.Name = "btnUbahLahan";
-            btnUbahLahan.Size = new Size(105, 34);
+            btnUbahLahan.Size = new Size(92, 26);
             btnUbahLahan.TabIndex = 4;
             btnUbahLahan.Text = "Ubah";
             btnUbahLahan.UseVisualStyleBackColor = false;
@@ -127,9 +132,10 @@
             btnTambahLahan.Cursor = Cursors.Hand;
             btnTambahLahan.FlatStyle = FlatStyle.Flat;
             btnTambahLahan.ForeColor = Color.White;
-            btnTambahLahan.Location = new Point(24, 98);
+            btnTambahLahan.Location = new Point(21, 73);
+            btnTambahLahan.Margin = new Padding(3, 2, 3, 2);
             btnTambahLahan.Name = "btnTambahLahan";
-            btnTambahLahan.Size = new Size(105, 34);
+            btnTambahLahan.Size = new Size(92, 26);
             btnTambahLahan.TabIndex = 3;
             btnTambahLahan.Text = "Tambah";
             btnTambahLahan.UseVisualStyleBackColor = false;
@@ -140,18 +146,19 @@
             txtCatatanLahan.BackColor = Color.White;
             txtCatatanLahan.BorderStyle = BorderStyle.FixedSingle;
             txtCatatanLahan.ForeColor = Color.Black;
-            txtCatatanLahan.Location = new Point(421, 45);
+            txtCatatanLahan.Location = new Point(368, 33);
+            txtCatatanLahan.Margin = new Padding(3, 2, 3, 2);
             txtCatatanLahan.Name = "txtCatatanLahan";
-            txtCatatanLahan.Size = new Size(250, 27);
+            txtCatatanLahan.Size = new Size(219, 23);
             txtCatatanLahan.TabIndex = 2;
             // 
             // labelCatatan
             // 
             labelCatatan.AutoSize = true;
             labelCatatan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCatatan.Location = new Point(421, 20);
+            labelCatatan.Location = new Point(368, 14);
             labelCatatan.Name = "labelCatatan";
-            labelCatatan.Size = new Size(72, 23);
+            labelCatatan.Size = new Size(60, 19);
             labelCatatan.TabIndex = 7;
             labelCatatan.Text = "Catatan";
             // 
@@ -160,18 +167,19 @@
             txtLuasLahan.BackColor = Color.White;
             txtLuasLahan.BorderStyle = BorderStyle.FixedSingle;
             txtLuasLahan.ForeColor = Color.Black;
-            txtLuasLahan.Location = new Point(273, 45);
+            txtLuasLahan.Location = new Point(239, 33);
+            txtLuasLahan.Margin = new Padding(3, 2, 3, 2);
             txtLuasLahan.Name = "txtLuasLahan";
-            txtLuasLahan.Size = new Size(100, 27);
+            txtLuasLahan.Size = new Size(88, 23);
             txtLuasLahan.TabIndex = 1;
             // 
             // labelLuas
             // 
             labelLuas.AutoSize = true;
             labelLuas.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelLuas.Location = new Point(273, 20);
+            labelLuas.Location = new Point(239, 14);
             labelLuas.Name = "labelLuas";
-            labelLuas.Size = new Size(84, 23);
+            labelLuas.Size = new Size(71, 19);
             labelLuas.TabIndex = 5;
             labelLuas.Text = "Luas (Ha)";
             // 
@@ -180,18 +188,19 @@
             txtNamaLahan.BackColor = Color.White;
             txtNamaLahan.BorderStyle = BorderStyle.FixedSingle;
             txtNamaLahan.ForeColor = Color.Black;
-            txtNamaLahan.Location = new Point(24, 45);
+            txtNamaLahan.Location = new Point(21, 33);
+            txtNamaLahan.Margin = new Padding(3, 2, 3, 2);
             txtNamaLahan.Name = "txtNamaLahan";
-            txtNamaLahan.Size = new Size(200, 27);
+            txtNamaLahan.Size = new Size(175, 23);
             txtNamaLahan.TabIndex = 0;
             // 
             // labelLokasi
             // 
             labelLokasi.AutoSize = true;
             labelLokasi.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelLokasi.Location = new Point(24, 19);
+            labelLokasi.Location = new Point(21, 13);
             labelLokasi.Name = "labelLokasi";
-            labelLokasi.Size = new Size(112, 23);
+            labelLokasi.Size = new Size(95, 19);
             labelLokasi.TabIndex = 3;
             labelLokasi.Text = "Nama Lokasi";
             // 
@@ -203,11 +212,12 @@
             dgvLahan.BackgroundColor = Color.White;
             dgvLahan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLahan.Columns.AddRange(new DataGridViewColumn[] { colNamaLokasi, colLuas, colCatatan, colId, colIsDelete });
-            dgvLahan.Location = new Point(28, 230);
+            dgvLahan.Location = new Point(24, 172);
+            dgvLahan.Margin = new Padding(3, 2, 3, 2);
             dgvLahan.Name = "dgvLahan";
             dgvLahan.ReadOnly = true;
             dgvLahan.RowHeadersWidth = 51;
-            dgvLahan.Size = new Size(1950, 250);
+            dgvLahan.Size = new Size(1112, 225);
             dgvLahan.TabIndex = 2;
             dgvLahan.CellClick += dgvLahan_CellClick;
             // 
@@ -216,7 +226,7 @@
             colNamaLokasi.DataPropertyName = "NamaLokasi";
             colNamaLokasi.HeaderText = "Nama Lokasi";
             colNamaLokasi.MinimumWidth = 6;
-            colNamaLokasi.Name = "NamaLokasi";
+            colNamaLokasi.Name = "colNamaLokasi";
             colNamaLokasi.ReadOnly = true;
             // 
             // colLuas
@@ -224,7 +234,7 @@
             colLuas.DataPropertyName = "LuasLahan";
             colLuas.HeaderText = "Luas (Ha)";
             colLuas.MinimumWidth = 6;
-            colLuas.Name = "LuasLahan";
+            colLuas.Name = "colLuas";
             colLuas.ReadOnly = true;
             // 
             // colCatatan
@@ -232,7 +242,7 @@
             colCatatan.DataPropertyName = "Catatan";
             colCatatan.HeaderText = "Catatan";
             colCatatan.MinimumWidth = 6;
-            colCatatan.Name = "Catatan";
+            colCatatan.Name = "colCatatan";
             colCatatan.ReadOnly = true;
             // 
             // colId
@@ -240,7 +250,7 @@
             colId.DataPropertyName = "Id";
             colId.HeaderText = "Id";
             colId.MinimumWidth = 6;
-            colId.Name = "Id";
+            colId.Name = "colId";
             colId.ReadOnly = true;
             colId.Visible = false;
             // 
@@ -249,18 +259,21 @@
             colIsDelete.DataPropertyName = "IsDelete";
             colIsDelete.HeaderText = "IsDelete";
             colIsDelete.MinimumWidth = 6;
-            colIsDelete.Name = "IsDelete";
+            colIsDelete.Name = "colIsDelete";
             colIsDelete.ReadOnly = true;
             colIsDelete.Visible = false;
             // 
             // FormLahan
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2005, 889);
+            AutoScroll = true;
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(1160, 488);
             Controls.Add(dgvLahan);
             Controls.Add(panelInputLahan);
             Controls.Add(labelLahan);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormLahan";
             Text = "FormLahan";
             panelInputLahan.ResumeLayout(false);

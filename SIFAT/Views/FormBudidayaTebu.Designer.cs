@@ -68,11 +68,12 @@
             dgvBudidayaTebu.BackgroundColor = Color.White;
             dgvBudidayaTebu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBudidayaTebu.Columns.AddRange(new DataGridViewColumn[] { colLokasi, colTglTanam, colTglPanen, colJumlah, colStatus, colNamaPengguna, colId, colIdLahan, colIdPengguna, colIsDelete });
-            dgvBudidayaTebu.Location = new Point(28, 330);
+            dgvBudidayaTebu.Location = new Point(24, 248);
+            dgvBudidayaTebu.Margin = new Padding(3, 2, 3, 2);
             dgvBudidayaTebu.Name = "dgvBudidayaTebu";
             dgvBudidayaTebu.ReadOnly = true;
             dgvBudidayaTebu.RowHeadersWidth = 51;
-            dgvBudidayaTebu.Size = new Size(1950, 250);
+            dgvBudidayaTebu.Size = new Size(1114, 135);
             dgvBudidayaTebu.TabIndex = 10;
             dgvBudidayaTebu.CellClick += dgvBudidayaTebu_CellClick;
             // 
@@ -81,7 +82,7 @@
             colLokasi.DataPropertyName = "NamaLokasi";
             colLokasi.HeaderText = "Lokasi Lahan";
             colLokasi.MinimumWidth = 6;
-            colLokasi.Name = "NamaLokasi";
+            colLokasi.Name = "colLokasi";
             colLokasi.ReadOnly = true;
             // 
             // colTglTanam
@@ -89,7 +90,7 @@
             colTglTanam.DataPropertyName = "TanggalTanam";
             colTglTanam.HeaderText = "Tanggal Tanam";
             colTglTanam.MinimumWidth = 6;
-            colTglTanam.Name = "TanggalTanam";
+            colTglTanam.Name = "colTglTanam";
             colTglTanam.ReadOnly = true;
             // 
             // colTglPanen
@@ -97,7 +98,7 @@
             colTglPanen.DataPropertyName = "TanggalPanen";
             colTglPanen.HeaderText = "Tanggal Panen";
             colTglPanen.MinimumWidth = 6;
-            colTglPanen.Name = "TanggalPanen";
+            colTglPanen.Name = "colTglPanen";
             colTglPanen.ReadOnly = true;
             // 
             // colJumlah
@@ -105,7 +106,7 @@
             colJumlah.DataPropertyName = "JumlahTebu";
             colJumlah.HeaderText = "Jumlah Tebu";
             colJumlah.MinimumWidth = 6;
-            colJumlah.Name = "JumlahTebu";
+            colJumlah.Name = "colJumlah";
             colJumlah.ReadOnly = true;
             // 
             // colStatus
@@ -113,7 +114,7 @@
             colStatus.DataPropertyName = "Status";
             colStatus.HeaderText = "Status";
             colStatus.MinimumWidth = 6;
-            colStatus.Name = "Status";
+            colStatus.Name = "colStatus";
             colStatus.ReadOnly = true;
             // 
             // colNamaPengguna
@@ -121,7 +122,7 @@
             colNamaPengguna.DataPropertyName = "NamaPengguna";
             colNamaPengguna.HeaderText = "Diinput Oleh";
             colNamaPengguna.MinimumWidth = 6;
-            colNamaPengguna.Name = "NamaPengguna";
+            colNamaPengguna.Name = "colNamaPengguna";
             colNamaPengguna.ReadOnly = true;
             // 
             // colId
@@ -129,7 +130,7 @@
             colId.DataPropertyName = "Id";
             colId.HeaderText = "Id";
             colId.MinimumWidth = 6;
-            colId.Name = "Id";
+            colId.Name = "colId";
             colId.ReadOnly = true;
             colId.Visible = false;
             // 
@@ -138,7 +139,7 @@
             colIdLahan.DataPropertyName = "IdLahan";
             colIdLahan.HeaderText = "IdLahan";
             colIdLahan.MinimumWidth = 6;
-            colIdLahan.Name = "IdLahan";
+            colIdLahan.Name = "colIdLahan";
             colIdLahan.ReadOnly = true;
             colIdLahan.Visible = false;
             // 
@@ -147,7 +148,7 @@
             colIdPengguna.DataPropertyName = "IdPengguna";
             colIdPengguna.HeaderText = "IdPengguna";
             colIdPengguna.MinimumWidth = 6;
-            colIdPengguna.Name = "IdPengguna";
+            colIdPengguna.Name = "colIdPengguna";
             colIdPengguna.ReadOnly = true;
             colIdPengguna.Visible = false;
             // 
@@ -156,12 +157,13 @@
             colIsDelete.DataPropertyName = "IsDelete";
             colIsDelete.HeaderText = "IsDelete";
             colIsDelete.MinimumWidth = 6;
-            colIsDelete.Name = "IsDelete";
+            colIsDelete.Name = "colIsDelete";
             colIsDelete.ReadOnly = true;
             colIsDelete.Visible = false;
             // 
             // panelInputBudidayaTebu
             // 
+            panelInputBudidayaTebu.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelInputBudidayaTebu.BackColor = Color.Transparent;
             panelInputBudidayaTebu.Controls.Add(dtpTanggalPanen);
             panelInputBudidayaTebu.Controls.Add(labelTanggalPanen);
@@ -178,36 +180,39 @@
             panelInputBudidayaTebu.Controls.Add(txtJumlahtebu);
             panelInputBudidayaTebu.Controls.Add(labelJumlahTebu);
             panelInputBudidayaTebu.Controls.Add(labelPilihLahan);
-            panelInputBudidayaTebu.Location = new Point(28, 60);
+            panelInputBudidayaTebu.Location = new Point(24, 45);
+            panelInputBudidayaTebu.Margin = new Padding(3, 2, 3, 2);
             panelInputBudidayaTebu.Name = "panelInputBudidayaTebu";
-            panelInputBudidayaTebu.Size = new Size(850, 250);
+            panelInputBudidayaTebu.Size = new Size(1114, 188);
             panelInputBudidayaTebu.TabIndex = 9;
             // 
             // dtpTanggalPanen
             // 
             dtpTanggalPanen.Enabled = false;
             dtpTanggalPanen.Format = DateTimePickerFormat.Short;
-            dtpTanggalPanen.Location = new Point(466, 127);
+            dtpTanggalPanen.Location = new Point(408, 95);
+            dtpTanggalPanen.Margin = new Padding(3, 2, 3, 2);
             dtpTanggalPanen.Name = "dtpTanggalPanen";
-            dtpTanggalPanen.Size = new Size(250, 27);
+            dtpTanggalPanen.Size = new Size(219, 23);
             dtpTanggalPanen.TabIndex = 5;
             // 
             // labelTanggalPanen
             // 
             labelTanggalPanen.AutoSize = true;
             labelTanggalPanen.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTanggalPanen.Location = new Point(466, 101);
+            labelTanggalPanen.Location = new Point(408, 76);
             labelTanggalPanen.Name = "labelTanggalPanen";
-            labelTanggalPanen.Size = new Size(127, 23);
+            labelTanggalPanen.Size = new Size(107, 19);
             labelTanggalPanen.TabIndex = 19;
             labelTanggalPanen.Text = "Tanggal Panen";
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(311, 127);
+            checkBox1.Location = new Point(272, 95);
+            checkBox1.Margin = new Padding(3, 2, 3, 2);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(122, 24);
+            checkBox1.Size = new Size(100, 19);
             checkBox1.TabIndex = 4;
             checkBox1.Text = "Sudah Panen?";
             checkBox1.UseVisualStyleBackColor = true;
@@ -218,18 +223,19 @@
             cmbStatusBudidaya.Cursor = Cursors.Hand;
             cmbStatusBudidaya.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatusBudidaya.FormattingEnabled = true;
-            cmbStatusBudidaya.Location = new Point(466, 46);
+            cmbStatusBudidaya.Location = new Point(408, 34);
+            cmbStatusBudidaya.Margin = new Padding(3, 2, 3, 2);
             cmbStatusBudidaya.Name = "cmbStatusBudidaya";
-            cmbStatusBudidaya.Size = new Size(200, 28);
+            cmbStatusBudidaya.Size = new Size(176, 23);
             cmbStatusBudidaya.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(466, 21);
+            label2.Location = new Point(408, 16);
             label2.Name = "label2";
-            label2.Size = new Size(60, 23);
+            label2.Size = new Size(49, 19);
             label2.TabIndex = 16;
             label2.Text = "Status";
             // 
@@ -238,26 +244,28 @@
             cmbLahanBudidaya.Cursor = Cursors.Hand;
             cmbLahanBudidaya.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLahanBudidaya.FormattingEnabled = true;
-            cmbLahanBudidaya.Location = new Point(24, 45);
+            cmbLahanBudidaya.Location = new Point(21, 34);
+            cmbLahanBudidaya.Margin = new Padding(3, 2, 3, 2);
             cmbLahanBudidaya.Name = "cmbLahanBudidaya";
-            cmbLahanBudidaya.Size = new Size(200, 28);
+            cmbLahanBudidaya.Size = new Size(176, 23);
             cmbLahanBudidaya.TabIndex = 0;
             // 
             // dtpTanggalTanam
             // 
             dtpTanggalTanam.Format = DateTimePickerFormat.Short;
-            dtpTanggalTanam.Location = new Point(24, 127);
+            dtpTanggalTanam.Location = new Point(21, 95);
+            dtpTanggalTanam.Margin = new Padding(3, 2, 3, 2);
             dtpTanggalTanam.Name = "dtpTanggalTanam";
-            dtpTanggalTanam.Size = new Size(250, 27);
+            dtpTanggalTanam.Size = new Size(219, 23);
             dtpTanggalTanam.TabIndex = 3;
             // 
             // labelTanggalTanam
             // 
             labelTanggalTanam.AutoSize = true;
             labelTanggalTanam.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTanggalTanam.Location = new Point(24, 101);
+            labelTanggalTanam.Location = new Point(21, 76);
             labelTanggalTanam.Name = "labelTanggalTanam";
-            labelTanggalTanam.Size = new Size(132, 23);
+            labelTanggalTanam.Size = new Size(110, 19);
             labelTanggalTanam.TabIndex = 3;
             labelTanggalTanam.Text = "Tanggal Tanam";
             // 
@@ -267,9 +275,10 @@
             btnResetBudidayaTebu.Cursor = Cursors.Hand;
             btnResetBudidayaTebu.FlatStyle = FlatStyle.Flat;
             btnResetBudidayaTebu.ForeColor = Color.White;
-            btnResetBudidayaTebu.Location = new Point(462, 198);
+            btnResetBudidayaTebu.Location = new Point(404, 148);
+            btnResetBudidayaTebu.Margin = new Padding(3, 2, 3, 2);
             btnResetBudidayaTebu.Name = "btnResetBudidayaTebu";
-            btnResetBudidayaTebu.Size = new Size(105, 34);
+            btnResetBudidayaTebu.Size = new Size(92, 26);
             btnResetBudidayaTebu.TabIndex = 9;
             btnResetBudidayaTebu.Text = "Reset";
             btnResetBudidayaTebu.UseVisualStyleBackColor = false;
@@ -281,9 +290,10 @@
             btnHapusBudidayaTebu.Cursor = Cursors.Hand;
             btnHapusBudidayaTebu.FlatStyle = FlatStyle.Flat;
             btnHapusBudidayaTebu.ForeColor = Color.White;
-            btnHapusBudidayaTebu.Location = new Point(316, 198);
+            btnHapusBudidayaTebu.Location = new Point(276, 148);
+            btnHapusBudidayaTebu.Margin = new Padding(3, 2, 3, 2);
             btnHapusBudidayaTebu.Name = "btnHapusBudidayaTebu";
-            btnHapusBudidayaTebu.Size = new Size(105, 34);
+            btnHapusBudidayaTebu.Size = new Size(92, 26);
             btnHapusBudidayaTebu.TabIndex = 8;
             btnHapusBudidayaTebu.Text = "Hapus";
             btnHapusBudidayaTebu.UseVisualStyleBackColor = false;
@@ -295,9 +305,10 @@
             btnUbahBudidayaTebu.Cursor = Cursors.Hand;
             btnUbahBudidayaTebu.FlatStyle = FlatStyle.Flat;
             btnUbahBudidayaTebu.ForeColor = Color.White;
-            btnUbahBudidayaTebu.Location = new Point(171, 198);
+            btnUbahBudidayaTebu.Location = new Point(150, 148);
+            btnUbahBudidayaTebu.Margin = new Padding(3, 2, 3, 2);
             btnUbahBudidayaTebu.Name = "btnUbahBudidayaTebu";
-            btnUbahBudidayaTebu.Size = new Size(105, 34);
+            btnUbahBudidayaTebu.Size = new Size(92, 26);
             btnUbahBudidayaTebu.TabIndex = 7;
             btnUbahBudidayaTebu.Text = "Ubah";
             btnUbahBudidayaTebu.UseVisualStyleBackColor = false;
@@ -309,9 +320,10 @@
             btnTambahBudidayaTebu.Cursor = Cursors.Hand;
             btnTambahBudidayaTebu.FlatStyle = FlatStyle.Flat;
             btnTambahBudidayaTebu.ForeColor = Color.White;
-            btnTambahBudidayaTebu.Location = new Point(24, 198);
+            btnTambahBudidayaTebu.Location = new Point(21, 148);
+            btnTambahBudidayaTebu.Margin = new Padding(3, 2, 3, 2);
             btnTambahBudidayaTebu.Name = "btnTambahBudidayaTebu";
-            btnTambahBudidayaTebu.Size = new Size(105, 34);
+            btnTambahBudidayaTebu.Size = new Size(92, 26);
             btnTambahBudidayaTebu.TabIndex = 6;
             btnTambahBudidayaTebu.Text = "Tambah";
             btnTambahBudidayaTebu.UseVisualStyleBackColor = false;
@@ -322,18 +334,19 @@
             txtJumlahtebu.BackColor = Color.White;
             txtJumlahtebu.BorderStyle = BorderStyle.FixedSingle;
             txtJumlahtebu.ForeColor = Color.Black;
-            txtJumlahtebu.Location = new Point(271, 46);
+            txtJumlahtebu.Location = new Point(237, 34);
+            txtJumlahtebu.Margin = new Padding(3, 2, 3, 2);
             txtJumlahtebu.Name = "txtJumlahtebu";
-            txtJumlahtebu.Size = new Size(150, 27);
+            txtJumlahtebu.Size = new Size(132, 23);
             txtJumlahtebu.TabIndex = 1;
             // 
             // labelJumlahTebu
             // 
             labelJumlahTebu.AutoSize = true;
             labelJumlahTebu.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelJumlahTebu.Location = new Point(267, 21);
+            labelJumlahTebu.Location = new Point(234, 16);
             labelJumlahTebu.Name = "labelJumlahTebu";
-            labelJumlahTebu.Size = new Size(111, 23);
+            labelJumlahTebu.Size = new Size(92, 19);
             labelJumlahTebu.TabIndex = 7;
             labelJumlahTebu.Text = "Jumlah Tebu";
             // 
@@ -341,9 +354,9 @@
             // 
             labelPilihLahan.AutoSize = true;
             labelPilihLahan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPilihLahan.Location = new Point(24, 20);
+            labelPilihLahan.Location = new Point(21, 15);
             labelPilihLahan.Name = "labelPilihLahan";
-            labelPilihLahan.Size = new Size(97, 23);
+            labelPilihLahan.Size = new Size(81, 19);
             labelPilihLahan.TabIndex = 5;
             labelPilihLahan.Text = "Pilih Lahan";
             // 
@@ -352,20 +365,23 @@
             labelBudidayaTebu.AutoSize = true;
             labelBudidayaTebu.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelBudidayaTebu.ForeColor = Color.FromArgb(30, 41, 59);
-            labelBudidayaTebu.Location = new Point(20, 20);
+            labelBudidayaTebu.Location = new Point(18, 10);
             labelBudidayaTebu.Name = "labelBudidayaTebu";
-            labelBudidayaTebu.Size = new Size(442, 38);
+            labelBudidayaTebu.Size = new Size(348, 30);
             labelBudidayaTebu.TabIndex = 6;
             labelBudidayaTebu.Text = "Manajemen Data Budidaya Tebu";
             // 
             // FormBudidayaTebu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2006, 888);
+            AutoScroll = true;
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(1162, 485);
             Controls.Add(dgvBudidayaTebu);
             Controls.Add(panelInputBudidayaTebu);
             Controls.Add(labelBudidayaTebu);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormBudidayaTebu";
             Text = "FormBudidayaTebu";
             ((System.ComponentModel.ISupportInitialize)dgvBudidayaTebu).EndInit();

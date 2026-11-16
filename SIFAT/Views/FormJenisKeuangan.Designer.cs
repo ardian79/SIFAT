@@ -55,11 +55,12 @@
             dgvJenisKeuangan.BackgroundColor = Color.White;
             dgvJenisKeuangan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvJenisKeuangan.Columns.AddRange(new DataGridViewColumn[] { colNamaJenis, colKategori, colId, colIsDelete });
-            dgvJenisKeuangan.Location = new Point(28, 230);
+            dgvJenisKeuangan.Location = new Point(24, 172);
+            dgvJenisKeuangan.Margin = new Padding(3, 2, 3, 2);
             dgvJenisKeuangan.Name = "dgvJenisKeuangan";
             dgvJenisKeuangan.ReadOnly = true;
             dgvJenisKeuangan.RowHeadersWidth = 51;
-            dgvJenisKeuangan.Size = new Size(1950, 250);
+            dgvJenisKeuangan.Size = new Size(1113, 227);
             dgvJenisKeuangan.TabIndex = 6;
             dgvJenisKeuangan.CellClick += dgvJenisKeuangan_CellClick;
             // 
@@ -68,7 +69,7 @@
             colNamaJenis.DataPropertyName = "NamaJenis";
             colNamaJenis.HeaderText = "Nama Jenis";
             colNamaJenis.MinimumWidth = 6;
-            colNamaJenis.Name = "NamaJenis";
+            colNamaJenis.Name = "colNamaJenis";
             colNamaJenis.ReadOnly = true;
             // 
             // colKategori
@@ -76,7 +77,7 @@
             colKategori.DataPropertyName = "Kategori";
             colKategori.HeaderText = "Kategori";
             colKategori.MinimumWidth = 6;
-            colKategori.Name = "Kategori";
+            colKategori.Name = "colKategori";
             colKategori.ReadOnly = true;
             // 
             // colId
@@ -84,7 +85,7 @@
             colId.DataPropertyName = "Id";
             colId.HeaderText = "Id";
             colId.MinimumWidth = 6;
-            colId.Name = "Id";
+            colId.Name = "colId";
             colId.ReadOnly = true;
             colId.Visible = false;
             // 
@@ -93,12 +94,13 @@
             colIsDelete.DataPropertyName = "IsDelete";
             colIsDelete.HeaderText = "IsDelete";
             colIsDelete.MinimumWidth = 6;
-            colIsDelete.Name = "IsDelete";
+            colIsDelete.Name = "colIsDelete";
             colIsDelete.ReadOnly = true;
             colIsDelete.Visible = false;
             // 
             // panelInputJenisKeuangan
             // 
+            panelInputJenisKeuangan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelInputJenisKeuangan.BackColor = Color.Transparent;
             panelInputJenisKeuangan.Controls.Add(cmbKategoriJenis);
             panelInputJenisKeuangan.Controls.Add(btnResetJenisKeuangan);
@@ -108,9 +110,10 @@
             panelInputJenisKeuangan.Controls.Add(txtNamaJenis);
             panelInputJenisKeuangan.Controls.Add(labelNamaJenis);
             panelInputJenisKeuangan.Controls.Add(labelKategori);
-            panelInputJenisKeuangan.Location = new Point(28, 60);
+            panelInputJenisKeuangan.Location = new Point(24, 45);
+            panelInputJenisKeuangan.Margin = new Padding(3, 2, 3, 2);
             panelInputJenisKeuangan.Name = "panelInputJenisKeuangan";
-            panelInputJenisKeuangan.Size = new Size(850, 150);
+            panelInputJenisKeuangan.Size = new Size(1113, 112);
             panelInputJenisKeuangan.TabIndex = 5;
             // 
             // cmbKategoriJenis
@@ -118,9 +121,10 @@
             cmbKategoriJenis.Cursor = Cursors.Hand;
             cmbKategoriJenis.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbKategoriJenis.FormattingEnabled = true;
-            cmbKategoriJenis.Location = new Point(325, 45);
+            cmbKategoriJenis.Location = new Point(284, 33);
+            cmbKategoriJenis.Margin = new Padding(3, 2, 3, 2);
             cmbKategoriJenis.Name = "cmbKategoriJenis";
-            cmbKategoriJenis.Size = new Size(200, 28);
+            cmbKategoriJenis.Size = new Size(176, 23);
             cmbKategoriJenis.TabIndex = 1;
             // 
             // btnResetJenisKeuangan
@@ -129,9 +133,10 @@
             btnResetJenisKeuangan.Cursor = Cursors.Hand;
             btnResetJenisKeuangan.FlatStyle = FlatStyle.Flat;
             btnResetJenisKeuangan.ForeColor = Color.White;
-            btnResetJenisKeuangan.Location = new Point(462, 98);
+            btnResetJenisKeuangan.Location = new Point(404, 73);
+            btnResetJenisKeuangan.Margin = new Padding(3, 2, 3, 2);
             btnResetJenisKeuangan.Name = "btnResetJenisKeuangan";
-            btnResetJenisKeuangan.Size = new Size(105, 34);
+            btnResetJenisKeuangan.Size = new Size(92, 26);
             btnResetJenisKeuangan.TabIndex = 5;
             btnResetJenisKeuangan.Text = "Reset";
             btnResetJenisKeuangan.UseVisualStyleBackColor = false;
@@ -143,9 +148,10 @@
             btnHapusJenisKeuangan.Cursor = Cursors.Hand;
             btnHapusJenisKeuangan.FlatStyle = FlatStyle.Flat;
             btnHapusJenisKeuangan.ForeColor = Color.White;
-            btnHapusJenisKeuangan.Location = new Point(316, 98);
+            btnHapusJenisKeuangan.Location = new Point(276, 73);
+            btnHapusJenisKeuangan.Margin = new Padding(3, 2, 3, 2);
             btnHapusJenisKeuangan.Name = "btnHapusJenisKeuangan";
-            btnHapusJenisKeuangan.Size = new Size(105, 34);
+            btnHapusJenisKeuangan.Size = new Size(92, 26);
             btnHapusJenisKeuangan.TabIndex = 4;
             btnHapusJenisKeuangan.Text = "Hapus";
             btnHapusJenisKeuangan.UseVisualStyleBackColor = false;
@@ -157,9 +163,10 @@
             btnUbahJenisKeuangan.Cursor = Cursors.Hand;
             btnUbahJenisKeuangan.FlatStyle = FlatStyle.Flat;
             btnUbahJenisKeuangan.ForeColor = Color.White;
-            btnUbahJenisKeuangan.Location = new Point(171, 98);
+            btnUbahJenisKeuangan.Location = new Point(150, 73);
+            btnUbahJenisKeuangan.Margin = new Padding(3, 2, 3, 2);
             btnUbahJenisKeuangan.Name = "btnUbahJenisKeuangan";
-            btnUbahJenisKeuangan.Size = new Size(105, 34);
+            btnUbahJenisKeuangan.Size = new Size(92, 26);
             btnUbahJenisKeuangan.TabIndex = 3;
             btnUbahJenisKeuangan.Text = "Ubah";
             btnUbahJenisKeuangan.UseVisualStyleBackColor = false;
@@ -171,9 +178,10 @@
             btnTambahJenisKeuangan.Cursor = Cursors.Hand;
             btnTambahJenisKeuangan.FlatStyle = FlatStyle.Flat;
             btnTambahJenisKeuangan.ForeColor = Color.White;
-            btnTambahJenisKeuangan.Location = new Point(24, 98);
+            btnTambahJenisKeuangan.Location = new Point(21, 73);
+            btnTambahJenisKeuangan.Margin = new Padding(3, 2, 3, 2);
             btnTambahJenisKeuangan.Name = "btnTambahJenisKeuangan";
-            btnTambahJenisKeuangan.Size = new Size(105, 34);
+            btnTambahJenisKeuangan.Size = new Size(92, 26);
             btnTambahJenisKeuangan.TabIndex = 2;
             btnTambahJenisKeuangan.Text = "Tambah";
             btnTambahJenisKeuangan.UseVisualStyleBackColor = false;
@@ -184,18 +192,19 @@
             txtNamaJenis.BackColor = Color.White;
             txtNamaJenis.BorderStyle = BorderStyle.FixedSingle;
             txtNamaJenis.ForeColor = Color.Black;
-            txtNamaJenis.Location = new Point(24, 45);
+            txtNamaJenis.Location = new Point(21, 33);
+            txtNamaJenis.Margin = new Padding(3, 2, 3, 2);
             txtNamaJenis.Name = "txtNamaJenis";
-            txtNamaJenis.Size = new Size(250, 27);
+            txtNamaJenis.Size = new Size(219, 23);
             txtNamaJenis.TabIndex = 0;
             // 
             // labelNamaJenis
             // 
             labelNamaJenis.AutoSize = true;
             labelNamaJenis.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelNamaJenis.Location = new Point(24, 20);
+            labelNamaJenis.Location = new Point(21, 14);
             labelNamaJenis.Name = "labelNamaJenis";
-            labelNamaJenis.Size = new Size(101, 23);
+            labelNamaJenis.Size = new Size(85, 19);
             labelNamaJenis.TabIndex = 7;
             labelNamaJenis.Text = "Nama Jenis";
             // 
@@ -203,9 +212,9 @@
             // 
             labelKategori.AutoSize = true;
             labelKategori.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelKategori.Location = new Point(325, 19);
+            labelKategori.Location = new Point(284, 13);
             labelKategori.Name = "labelKategori";
-            labelKategori.Size = new Size(79, 23);
+            labelKategori.Size = new Size(67, 19);
             labelKategori.TabIndex = 5;
             labelKategori.Text = "Kategori";
             // 
@@ -214,20 +223,23 @@
             labelJenisKeuangan.AutoSize = true;
             labelJenisKeuangan.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelJenisKeuangan.ForeColor = Color.FromArgb(30, 41, 59);
-            labelJenisKeuangan.Location = new Point(20, 20);
+            labelJenisKeuangan.Location = new Point(18, 15);
             labelJenisKeuangan.Name = "labelJenisKeuangan";
-            labelJenisKeuangan.Size = new Size(453, 38);
+            labelJenisKeuangan.Size = new Size(355, 30);
             labelJenisKeuangan.TabIndex = 6;
             labelJenisKeuangan.Text = "Manajemen Data Jenis Keuangan";
             // 
             // FormJenisKeuangan
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2007, 891);
+            AutoScroll = true;
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(1161, 490);
             Controls.Add(dgvJenisKeuangan);
             Controls.Add(panelInputJenisKeuangan);
             Controls.Add(labelJenisKeuangan);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormJenisKeuangan";
             Text = "FormJenisKeuangan";
             ((System.ComponentModel.ISupportInitialize)dgvJenisKeuangan).EndInit();

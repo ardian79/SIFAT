@@ -90,8 +90,7 @@ namespace SIFAT.Views
             }
             if (hasHScroll) totalHeight += SystemInformation.HorizontalScrollBarHeight;
 
-            int maxHeight = this.ClientSize.Height - dgvBudidayaTebu.Top - 20;
-            dgvBudidayaTebu.Height = Math.Min(totalHeight, maxHeight);
+            dgvBudidayaTebu.Height = totalHeight;
             dgvBudidayaTebu.BackgroundColor = Color.White;
         }
 

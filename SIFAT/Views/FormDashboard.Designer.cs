@@ -65,10 +65,10 @@
             tableLayoutDashboard.SetColumnSpan(lblSelamatDatang, 3);
             lblSelamatDatang.Dock = DockStyle.Fill;
             lblSelamatDatang.Font = new Font("Segoe UI", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSelamatDatang.Location = new Point(20, 0);
+            lblSelamatDatang.Location = new Point(3, 0);
             lblSelamatDatang.Name = "lblSelamatDatang";
-            lblSelamatDatang.Padding = new Padding(20, 0, 0, 0);
-            lblSelamatDatang.Size = new Size(1713, 80);
+            lblSelamatDatang.Padding = new Padding(18, 0, 0, 0);
+            lblSelamatDatang.Size = new Size(1157, 60);
             lblSelamatDatang.TabIndex = 0;
             lblSelamatDatang.Text = "Selamat Datang,";
             lblSelamatDatang.TextAlign = ContentAlignment.MiddleLeft;
@@ -77,7 +77,7 @@
             // 
             tableLayoutDashboard.ColumnCount = 3;
             tableLayoutDashboard.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutDashboard.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 850F));
+            tableLayoutDashboard.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 744F));
             tableLayoutDashboard.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutDashboard.Controls.Add(lblSelamatDatang, 0, 0);
             tableLayoutDashboard.Controls.Add(panelTengah, 1, 1);
@@ -85,13 +85,14 @@
             tableLayoutDashboard.Controls.Add(dgvTransaksiTerbaru, 0, 3);
             tableLayoutDashboard.Dock = DockStyle.Fill;
             tableLayoutDashboard.Location = new Point(0, 0);
+            tableLayoutDashboard.Margin = new Padding(3, 2, 3, 2);
             tableLayoutDashboard.Name = "tableLayoutDashboard";
             tableLayoutDashboard.RowCount = 4;
-            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
-            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 160F));
-            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-            tableLayoutDashboard.Size = new Size(1753, 667);
+            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
+            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutDashboard.RowStyles.Add(new RowStyle());
+            tableLayoutDashboard.Size = new Size(1163, 485);
             tableLayoutDashboard.TabIndex = 5;
             // 
             // panelTengah
@@ -100,9 +101,10 @@
             panelTengah.Controls.Add(panelPemasukan);
             panelTengah.Controls.Add(panelPengeluaran);
             panelTengah.Dock = DockStyle.Fill;
-            panelTengah.Location = new Point(454, 83);
+            panelTengah.Location = new Point(212, 62);
+            panelTengah.Margin = new Padding(3, 2, 3, 2);
             panelTengah.Name = "panelTengah";
-            panelTengah.Size = new Size(844, 154);
+            panelTengah.Size = new Size(738, 116);
             panelTengah.TabIndex = 0;
             // 
             // panelSaldo
@@ -110,9 +112,10 @@
             panelSaldo.BackColor = Color.RoyalBlue;
             panelSaldo.Controls.Add(lblSaldo);
             panelSaldo.Controls.Add(labelTitleSaldo);
-            panelSaldo.Location = new Point(560, 20);
+            panelSaldo.Location = new Point(500, 15);
+            panelSaldo.Margin = new Padding(3, 2, 3, 2);
             panelSaldo.Name = "panelSaldo";
-            panelSaldo.Size = new Size(260, 120);
+            panelSaldo.Size = new Size(228, 90);
             panelSaldo.TabIndex = 4;
             // 
             // lblSaldo
@@ -120,9 +123,9 @@
             lblSaldo.AutoSize = true;
             lblSaldo.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSaldo.ForeColor = Color.White;
-            lblSaldo.Location = new Point(15, 55);
+            lblSaldo.Location = new Point(13, 41);
             lblSaldo.Name = "lblSaldo";
-            lblSaldo.Size = new Size(89, 37);
+            lblSaldo.Size = new Size(60, 30);
             lblSaldo.TabIndex = 1;
             lblSaldo.Text = "Rp 0";
             // 
@@ -131,9 +134,9 @@
             labelTitleSaldo.AutoSize = true;
             labelTitleSaldo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTitleSaldo.ForeColor = Color.White;
-            labelTitleSaldo.Location = new Point(15, 15);
+            labelTitleSaldo.Location = new Point(13, 11);
             labelTitleSaldo.Name = "labelTitleSaldo";
-            labelTitleSaldo.Size = new Size(104, 23);
+            labelTitleSaldo.Size = new Size(86, 19);
             labelTitleSaldo.TabIndex = 0;
             labelTitleSaldo.Text = "SALDO KAS";
             // 
@@ -142,9 +145,10 @@
             panelPemasukan.BackColor = Color.MediumSeaGreen;
             panelPemasukan.Controls.Add(lblTotalPemasukan);
             panelPemasukan.Controls.Add(labelTitlePemasukan);
-            panelPemasukan.Location = new Point(0, 20);
+            panelPemasukan.Location = new Point(10, 15);
+            panelPemasukan.Margin = new Padding(3, 2, 3, 2);
             panelPemasukan.Name = "panelPemasukan";
-            panelPemasukan.Size = new Size(260, 120);
+            panelPemasukan.Size = new Size(228, 90);
             panelPemasukan.TabIndex = 1;
             // 
             // lblTotalPemasukan
@@ -152,9 +156,9 @@
             lblTotalPemasukan.AutoSize = true;
             lblTotalPemasukan.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalPemasukan.ForeColor = Color.White;
-            lblTotalPemasukan.Location = new Point(15, 55);
+            lblTotalPemasukan.Location = new Point(13, 41);
             lblTotalPemasukan.Name = "lblTotalPemasukan";
-            lblTotalPemasukan.Size = new Size(89, 37);
+            lblTotalPemasukan.Size = new Size(60, 30);
             lblTotalPemasukan.TabIndex = 1;
             lblTotalPemasukan.Text = "Rp 0";
             // 
@@ -163,9 +167,9 @@
             labelTitlePemasukan.AutoSize = true;
             labelTitlePemasukan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTitlePemasukan.ForeColor = Color.White;
-            labelTitlePemasukan.Location = new Point(15, 15);
+            labelTitlePemasukan.Location = new Point(13, 11);
             labelTitlePemasukan.Name = "labelTitlePemasukan";
-            labelTitlePemasukan.Size = new Size(164, 23);
+            labelTitlePemasukan.Size = new Size(141, 19);
             labelTitlePemasukan.TabIndex = 0;
             labelTitlePemasukan.Text = "TOTAL PEMASUKAN";
             // 
@@ -174,9 +178,10 @@
             panelPengeluaran.BackColor = Color.Crimson;
             panelPengeluaran.Controls.Add(lblTotalPengeluaran);
             panelPengeluaran.Controls.Add(labelTitlePengeluaran);
-            panelPengeluaran.Location = new Point(280, 20);
+            panelPengeluaran.Location = new Point(255, 15);
+            panelPengeluaran.Margin = new Padding(3, 2, 3, 2);
             panelPengeluaran.Name = "panelPengeluaran";
-            panelPengeluaran.Size = new Size(260, 120);
+            panelPengeluaran.Size = new Size(228, 90);
             panelPengeluaran.TabIndex = 2;
             // 
             // lblTotalPengeluaran
@@ -184,9 +189,9 @@
             lblTotalPengeluaran.AutoSize = true;
             lblTotalPengeluaran.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalPengeluaran.ForeColor = Color.White;
-            lblTotalPengeluaran.Location = new Point(15, 55);
+            lblTotalPengeluaran.Location = new Point(13, 41);
             lblTotalPengeluaran.Name = "lblTotalPengeluaran";
-            lblTotalPengeluaran.Size = new Size(89, 37);
+            lblTotalPengeluaran.Size = new Size(60, 30);
             lblTotalPengeluaran.TabIndex = 1;
             lblTotalPengeluaran.Text = "Rp 0";
             // 
@@ -195,9 +200,9 @@
             labelTitlePengeluaran.AutoSize = true;
             labelTitlePengeluaran.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTitlePengeluaran.ForeColor = Color.White;
-            labelTitlePengeluaran.Location = new Point(15, 15);
+            labelTitlePengeluaran.Location = new Point(13, 11);
             labelTitlePengeluaran.Name = "labelTitlePengeluaran";
-            labelTitlePengeluaran.Size = new Size(183, 23);
+            labelTitlePengeluaran.Size = new Size(155, 19);
             labelTitlePengeluaran.TabIndex = 0;
             labelTitlePengeluaran.Text = "TOTAL PENGELUARAN";
             // 
@@ -206,10 +211,10 @@
             tableLayoutDashboard.SetColumnSpan(lblRiwayat, 3);
             lblRiwayat.Dock = DockStyle.Fill;
             lblRiwayat.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblRiwayat.Location = new Point(3, 240);
+            lblRiwayat.Location = new Point(3, 180);
             lblRiwayat.Name = "lblRiwayat";
-            lblRiwayat.Padding = new Padding(20, 0, 0, 0);
-            lblRiwayat.Size = new Size(1747, 40);
+            lblRiwayat.Padding = new Padding(18, 0, 0, 0);
+            lblRiwayat.Size = new Size(1157, 30);
             lblRiwayat.TabIndex = 1;
             lblRiwayat.Text = "5 Transaksi Terbaru";
             lblRiwayat.TextAlign = ContentAlignment.MiddleLeft;
@@ -217,20 +222,19 @@
             // dgvTransaksiTerbaru
             // 
             dgvTransaksiTerbaru.AllowUserToAddRows = false;
-            dgvTransaksiTerbaru.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvTransaksiTerbaru.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTransaksiTerbaru.BackgroundColor = Color.White;
             dgvTransaksiTerbaru.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTransaksiTerbaru.Columns.AddRange(new DataGridViewColumn[] { colTanggal, colNamaJenis, colKategori, colJumlah, colKeterangan, colNamaPengguna, colId, colIdPengguna, colIdJenisKeuangan, colIsDelete });
             tableLayoutDashboard.SetColumnSpan(dgvTransaksiTerbaru, 3);
-            dgvTransaksiTerbaru.Dock = DockStyle.None;
-            dgvTransaksiTerbaru.Location = new Point(20, 300);
-            dgvTransaksiTerbaru.Margin = new Padding(20);
+            dgvTransaksiTerbaru.Dock = DockStyle.Top;
+            dgvTransaksiTerbaru.Location = new Point(18, 225);
+            dgvTransaksiTerbaru.Margin = new Padding(18, 15, 18, 0);
             dgvTransaksiTerbaru.Name = "dgvTransaksiTerbaru";
             dgvTransaksiTerbaru.ReadOnly = true;
             dgvTransaksiTerbaru.RowHeadersWidth = 51;
             dgvTransaksiTerbaru.ScrollBars = ScrollBars.Horizontal;
-            dgvTransaksiTerbaru.Size = new Size(1713, 200);
+            dgvTransaksiTerbaru.Size = new Size(1127, 112);
             dgvTransaksiTerbaru.TabIndex = 10;
             // 
             // colTanggal
@@ -319,11 +323,12 @@
             // 
             // FormDashboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1753, 667);
+            ClientSize = new Size(1163, 485);
             Controls.Add(tableLayoutDashboard);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormDashboard";
             Text = "FormDashboard";
             tableLayoutDashboard.ResumeLayout(false);

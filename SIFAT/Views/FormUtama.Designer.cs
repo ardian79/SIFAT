@@ -58,7 +58,7 @@
             panelSidebar.Dock = DockStyle.Left;
             panelSidebar.Location = new Point(0, 0);
             panelSidebar.Name = "panelSidebar";
-            panelSidebar.Size = new Size(220, 930);
+            panelSidebar.Size = new Size(220, 489);
             panelSidebar.TabIndex = 0;
             // 
             // panelMenu
@@ -73,7 +73,7 @@
             panelMenu.FlowDirection = FlowDirection.TopDown;
             panelMenu.Location = new Point(0, 100);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 770);
+            panelMenu.Size = new Size(220, 329);
             panelMenu.TabIndex = 10;
             panelMenu.WrapContents = false;
             // 
@@ -207,7 +207,7 @@
             labelSIFAT.ForeColor = Color.White;
             labelSIFAT.Location = new Point(66, 31);
             labelSIFAT.Name = "labelSIFAT";
-            labelSIFAT.Size = new Size(89, 38);
+            labelSIFAT.Size = new Size(68, 30);
             labelSIFAT.TabIndex = 7;
             labelSIFAT.Text = "SIFAT";
             // 
@@ -215,7 +215,7 @@
             // 
             panel1.Controls.Add(btnLogout);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 870);
+            panel1.Location = new Point(0, 429);
             panel1.Name = "panel1";
             panel1.Size = new Size(220, 60);
             panel1.TabIndex = 5;
@@ -244,15 +244,15 @@
             panelKonten.ForeColor = Color.Black;
             panelKonten.Location = new Point(220, 0);
             panelKonten.Name = "panelKonten";
-            panelKonten.Size = new Size(1788, 930);
+            panelKonten.Size = new Size(944, 489);
             panelKonten.TabIndex = 2;
             // 
             // FormUtama
             // 
-            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(2008, 930);
+            ClientSize = new Size(1164, 489);
             Controls.Add(panelKonten);
             Controls.Add(panelSidebar);
             Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
