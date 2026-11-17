@@ -6,7 +6,7 @@ using SIFAT.Models;
 
 namespace SIFAT.Repositories
 {
-    public class PenggunaRepository : IRepository<Pengguna>
+    public class PenggunaRepository
     {
         public Pengguna Login(string username, string password)
         {
