@@ -205,7 +205,7 @@
             labelSIFAT.AutoSize = true;
             labelSIFAT.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelSIFAT.ForeColor = Color.White;
-            labelSIFAT.Location = new Point(66, 31);
+            labelSIFAT.Location = new Point(66, 35);
             labelSIFAT.Name = "labelSIFAT";
             labelSIFAT.Size = new Size(68, 30);
             labelSIFAT.TabIndex = 7;
