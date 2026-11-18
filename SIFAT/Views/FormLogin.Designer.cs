@@ -57,7 +57,7 @@
             tableLayoutLogin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutLogin.RowStyles.Add(new RowStyle(SizeType.Absolute, 350F));
             tableLayoutLogin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutLogin.Size = new Size(2005, 892);
+            tableLayoutLogin.Size = new Size(1575, 840);
             tableLayoutLogin.TabIndex = 0;
             // 
             // panelLogin
@@ -73,7 +73,7 @@
             panelLogin.Controls.Add(txtUsernameLogin);
             panelLogin.Dock = DockStyle.Fill;
             panelLogin.ForeColor = Color.White;
-            panelLogin.Location = new Point(805, 274);
+            panelLogin.Location = new Point(590, 248);
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(394, 344);
             panelLogin.TabIndex = 0;
@@ -95,7 +95,7 @@
             labelSIFAT.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelSIFAT.Location = new Point(165, 78);
             labelSIFAT.Name = "labelSIFAT";
-            labelSIFAT.Size = new Size(63, 28);
+            labelSIFAT.Size = new Size(50, 21);
             labelSIFAT.TabIndex = 6;
             labelSIFAT.Text = "SIFAT";
             // 
@@ -117,7 +117,7 @@
             labelPassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelPassword.Location = new Point(37, 204);
             labelPassword.Name = "labelPassword";
-            labelPassword.Size = new Size(85, 23);
+            labelPassword.Size = new Size(73, 19);
             labelPassword.TabIndex = 3;
             labelPassword.Text = "Password\r\n";
             // 
@@ -127,7 +127,7 @@
             labelUsernameLogin.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelUsernameLogin.Location = new Point(37, 113);
             labelUsernameLogin.Name = "labelUsernameLogin";
-            labelUsernameLogin.Size = new Size(89, 23);
+            labelUsernameLogin.Size = new Size(76, 19);
             labelUsernameLogin.TabIndex = 2;
             labelUsernameLogin.Text = "Username\r\n";
             // 
@@ -138,7 +138,7 @@
             txtPasswordLogin.Location = new Point(36, 230);
             txtPasswordLogin.Name = "txtPasswordLogin";
             txtPasswordLogin.PasswordChar = '*';
-            txtPasswordLogin.Size = new Size(320, 30);
+            txtPasswordLogin.Size = new Size(320, 26);
             txtPasswordLogin.TabIndex = 1;
             // 
             // txtUsernameLogin
@@ -147,18 +147,18 @@
             txtUsernameLogin.ForeColor = Color.Black;
             txtUsernameLogin.Location = new Point(36, 139);
             txtUsernameLogin.Name = "txtUsernameLogin";
-            txtUsernameLogin.Size = new Size(320, 30);
+            txtUsernameLogin.Size = new Size(320, 26);
             txtUsernameLogin.TabIndex = 0;
             // 
             // FormLogin
             // 
             AcceptButton = buttonLogin;
-            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             BackgroundImage = Properties.Resources.Background_Login;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(2005, 892);
+            ClientSize = new Size(1575, 840);
             Controls.Add(tableLayoutLogin);
             Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "FormLogin";

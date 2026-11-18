@@ -61,9 +61,9 @@ namespace SIFAT.Views
                 dgvBudidayaTebu.AutoGenerateColumns = false;
                 dgvBudidayaTebu.DataSource = list;
 
-                if (dgvBudidayaTebu.Columns["NamaPengguna"] != null)
+                if (dgvBudidayaTebu.Columns["colNamaPengguna"] != null)
                 {
-                    dgvBudidayaTebu.Columns["NamaPengguna"].Visible = (_userLogin.Role == "Petani");
+                    dgvBudidayaTebu.Columns["colNamaPengguna"].Visible = (_userLogin.Role == "Petani");
                 }
 
                 AturTinggiTabel();
