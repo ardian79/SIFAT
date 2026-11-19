@@ -135,11 +135,11 @@ namespace SIFAT.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvPengguna.Rows[e.RowIndex];
-                if (row.Cells["Id"].Value == null || row.Cells["Id"].Value == DBNull.Value) return;
+                if (row.Cells["colId"].Value == null || row.Cells["colId"].Value == DBNull.Value) return;
 
-                _selectedId = Convert.ToInt32(row.Cells["Id"].Value);
-                txtNamaLengkapPengguna.Text = row.Cells["NamaLengkap"].Value.ToString();
-                txtUsernamePengguna.Text = row.Cells["Username"].Value.ToString();
+                _selectedId = Convert.ToInt32(row.Cells["colId"].Value);
+                txtNamaLengkapPengguna.Text = row.Cells["colNamaLengkap"].Value.ToString();
+                txtUsernamePengguna.Text = row.Cells["colUsername"].Value.ToString();
                 txtPasswordPengguna.Clear();
             }
         }

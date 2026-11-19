@@ -197,24 +197,24 @@ namespace SIFAT.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvBudidayaTebu.Rows[e.RowIndex];
-                if (row.Cells["Id"].Value == null || row.Cells["Id"].Value == DBNull.Value) return;
+                if (row.Cells["colId"].Value == null || row.Cells["colId"].Value == DBNull.Value) return;
 
-                _selectedId = Convert.ToInt32(row.Cells["Id"].Value);
-                cmbLahanBudidaya.SelectedValue = Convert.ToInt32(row.Cells["IdLahan"].Value);
-                dtpTanggalTanam.Value = Convert.ToDateTime(row.Cells["TanggalTanam"].Value);
+                _selectedId = Convert.ToInt32(row.Cells["colId"].Value);
+                cmbLahanBudidaya.SelectedValue = Convert.ToInt32(row.Cells["colIdLahan"].Value);
+                dtpTanggalTanam.Value = Convert.ToDateTime(row.Cells["colTglTanam"].Value);
 
-                if (row.Cells["TanggalPanen"].Value != null && row.Cells["TanggalPanen"].Value != DBNull.Value)
+                if (row.Cells["colTglPanen"].Value != null && row.Cells["colTglPanen"].Value != DBNull.Value)
                 {
                     checkBox1.Checked = true;
-                    dtpTanggalPanen.Value = Convert.ToDateTime(row.Cells["TanggalPanen"].Value);
+                    dtpTanggalPanen.Value = Convert.ToDateTime(row.Cells["colTglPanen"].Value);
                 }
                 else
                 {
                     checkBox1.Checked = false;
                 }
 
-                txtJumlahtebu.Text = row.Cells["JumlahTebu"].Value.ToString();
-                cmbStatusBudidaya.SelectedItem = row.Cells["Status"].Value.ToString();
+                txtJumlahtebu.Text = row.Cells["colJumlah"].Value.ToString();
+                cmbStatusBudidaya.SelectedItem = row.Cells["colStatus"].Value.ToString();
             }
         }
     }

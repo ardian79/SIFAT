@@ -178,13 +178,13 @@ namespace SIFAT.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvKeuangan.Rows[e.RowIndex];
-                if (row.Cells["Id"].Value == null || row.Cells["Id"].Value == DBNull.Value) return;
+                if (row.Cells["colId"].Value == null || row.Cells["colId"].Value == DBNull.Value) return;
 
-                _selectedId = Convert.ToInt32(row.Cells["Id"].Value);
-                dtpTanggalKeuangan.Value = Convert.ToDateTime(row.Cells["Tanggal"].Value);
-                cmbJenisKeuangan.SelectedValue = Convert.ToInt32(row.Cells["IdJenisKeuangan"].Value);
-                txtJumlahKeuangan.Text = row.Cells["Jumlah"].Value.ToString();
-                txtKeteranganKeuangan.Text = row.Cells["Keterangan"].Value.ToString();
+                _selectedId = Convert.ToInt32(row.Cells["colId"].Value);
+                dtpTanggalKeuangan.Value = Convert.ToDateTime(row.Cells["colTanggal"].Value);
+                cmbJenisKeuangan.SelectedValue = Convert.ToInt32(row.Cells["colIdJenisKeuangan"].Value);
+                txtJumlahKeuangan.Text = row.Cells["colJumlah"].Value.ToString();
+                txtKeteranganKeuangan.Text = row.Cells["colKeterangan"].Value.ToString();
             }
         }
     }

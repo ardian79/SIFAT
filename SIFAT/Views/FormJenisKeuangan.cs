@@ -140,11 +140,11 @@ namespace SIFAT.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvJenisKeuangan.Rows[e.RowIndex];
-                if (row.Cells["Id"].Value == null || row.Cells["Id"].Value == DBNull.Value) return;
+                if (row.Cells["colId"].Value == null || row.Cells["colId"].Value == DBNull.Value) return;
 
-                _selectedId = Convert.ToInt32(row.Cells["Id"].Value);
-                txtNamaJenis.Text = row.Cells["NamaJenis"].Value.ToString();
-                cmbKategoriJenis.SelectedItem = row.Cells["Kategori"].Value.ToString();
+                _selectedId = Convert.ToInt32(row.Cells["colId"].Value);
+                txtNamaJenis.Text = row.Cells["colNamaJenis"].Value.ToString();
+                cmbKategoriJenis.SelectedItem = row.Cells["colKategori"].Value.ToString();
             }
         }
     }

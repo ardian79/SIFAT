@@ -135,12 +135,12 @@ namespace SIFAT.Views
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvLahan.Rows[e.RowIndex];
-                if (row.Cells["Id"].Value == null || row.Cells["Id"].Value == DBNull.Value) return;
+                if (row.Cells["colId"].Value == null || row.Cells["colId"].Value == DBNull.Value) return;
 
-                _selectedId = Convert.ToInt32(row.Cells["Id"].Value);
-                txtNamaLahan.Text = row.Cells["NamaLokasi"].Value.ToString();
-                txtLuasLahan.Text = row.Cells["LuasLahan"].Value.ToString();
-                txtCatatanLahan.Text = row.Cells["Catatan"].Value.ToString();
+                _selectedId = Convert.ToInt32(row.Cells["colId"].Value);
+                txtNamaLahan.Text = row.Cells["colNamaLokasi"].Value.ToString();
+                txtLuasLahan.Text = row.Cells["colLuas"].Value.ToString();
+                txtCatatanLahan.Text = row.Cells["colCatatan"].Value.ToString();
             }
         }
     }

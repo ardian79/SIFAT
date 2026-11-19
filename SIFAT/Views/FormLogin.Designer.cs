@@ -57,7 +57,7 @@
             tableLayoutLogin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutLogin.RowStyles.Add(new RowStyle(SizeType.Absolute, 350F));
             tableLayoutLogin.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutLogin.Size = new Size(1575, 840);
+            tableLayoutLogin.Size = new Size(1163, 483);
             tableLayoutLogin.TabIndex = 0;
             // 
             // panelLogin
@@ -73,7 +73,7 @@
             panelLogin.Controls.Add(txtUsernameLogin);
             panelLogin.Dock = DockStyle.Fill;
             panelLogin.ForeColor = Color.White;
-            panelLogin.Location = new Point(590, 248);
+            panelLogin.Location = new Point(384, 69);
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(394, 344);
             panelLogin.TabIndex = 0;
@@ -158,7 +158,7 @@
             BackColor = Color.LightGray;
             BackgroundImage = Properties.Resources.Background_Login;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1575, 840);
+            ClientSize = new Size(1163, 483);
             Controls.Add(tableLayoutLogin);
             Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "FormLogin";
