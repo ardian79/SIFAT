@@ -23,6 +23,8 @@ namespace SIFAT.Views
             this.Dock = DockStyle.Fill;
             this.ForeColor = Color.Black;
 
+            colLuas.DefaultCellStyle.Format = "0.##";
+
             LoadData();
         }
 
@@ -38,7 +40,7 @@ namespace SIFAT.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal memuat data: " + ex.Message);
+                MessageBox.Show("Gagal memuat data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -64,16 +66,23 @@ namespace SIFAT.Views
 
         private void btnTambahLahan_Click(object sender, EventArgs e)
         {
-            string pesan = _controller.TambahLahan(txtNamaLahan.Text, txtLuasLahan.Text, txtCatatanLahan.Text);
-            if (pesan == "OK")
+            try
             {
-                MessageBox.Show("Data Lahan berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-                btnResetLahan_Click(null, null);
+                string pesan = _controller.TambahLahan(txtNamaLahan.Text, txtLuasLahan.Text, txtCatatanLahan.Text);
+                if (pesan == "OK")
+                {
+                    MessageBox.Show("Data Lahan berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    btnResetLahan_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gagal menambahkan data lahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -84,16 +93,24 @@ namespace SIFAT.Views
                 MessageBox.Show("Pilih data di tabel terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string pesan = _controller.UbahLahan(_selectedId, txtNamaLahan.Text, txtLuasLahan.Text, txtCatatanLahan.Text);
-            if (pesan == "OK")
+
+            try
             {
-                MessageBox.Show("Data Lahan berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-                btnResetLahan_Click(null, null);
+                string pesan = _controller.UbahLahan(_selectedId, txtNamaLahan.Text, txtLuasLahan.Text, txtCatatanLahan.Text);
+                if (pesan == "OK")
+                {
+                    MessageBox.Show("Data Lahan berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    btnResetLahan_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gagal mengubah data lahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -104,6 +121,7 @@ namespace SIFAT.Views
                 MessageBox.Show("Pilih data di tabel terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             DialogResult result = MessageBox.Show("Yakin ingin menghapus lahan ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -116,7 +134,7 @@ namespace SIFAT.Views
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -138,11 +156,10 @@ namespace SIFAT.Views
                 if (row.Cells["colId"].Value == null || row.Cells["colId"].Value == DBNull.Value) return;
 
                 _selectedId = Convert.ToInt32(row.Cells["colId"].Value);
-                txtNamaLahan.Text = row.Cells["colNamaLokasi"].Value.ToString();
-                txtLuasLahan.Text = row.Cells["colLuas"].Value.ToString();
-                txtCatatanLahan.Text = row.Cells["colCatatan"].Value.ToString();
+                txtNamaLahan.Text = row.Cells["colNamaLokasi"].Value?.ToString() ?? string.Empty;
+                txtLuasLahan.Text = row.Cells["colLuas"].Value?.ToString() ?? string.Empty;
+                txtCatatanLahan.Text = row.Cells["colCatatan"].Value?.ToString() ?? string.Empty;
             }
         }
     }
 }
-

@@ -12,13 +12,17 @@ namespace SIFAT.Views
     public partial class FormUtama : Form
     {
         private Pengguna _userLogin;
+        private Form _formAktif;
+
+        public bool IsLogout { get; private set; } = false;
 
         public FormUtama(Pengguna user)
         {
             InitializeComponent();
             _userLogin = user;
+            this.Text = $"SIFAT - {_userLogin.NamaLengkap} ({_userLogin.GetHakAkses()})";
 
-            if (_userLogin.Role == "Buruh Tani")
+            if (!_userLogin.BisaAksesMenuAdmin())
             {
                 btnDashboard.Visible = false;
                 btnLahan.Visible = false;
@@ -29,24 +33,22 @@ namespace SIFAT.Views
             }
             else
             {
-                BukaFormDashboard();
+                BukaForm(new FormDashboard(_userLogin));
             }
-        }
-
-        private void BukaFormDashboard()
-        {
-            panelKonten.Controls.Clear();
-            FormDashboard formDash = new FormDashboard(_userLogin);
-            formDash.TopLevel = false;
-            formDash.Dock = DockStyle.Fill;
-            panelKonten.Controls.Add(formDash);
-            formDash.Show();
         }
 
         private void BukaForm(Form formAnak)
         {
+            if (_formAktif != null)
+            {
+                _formAktif.Close();
+                _formAktif.Dispose();
+            }
+
+            _formAktif = formAnak;
             panelKonten.Controls.Clear();
             formAnak.TopLevel = false;
+            formAnak.FormBorderStyle = FormBorderStyle.None;
             formAnak.Dock = DockStyle.Fill;
             panelKonten.Controls.Add(formAnak);
             formAnak.Show();
@@ -54,7 +56,7 @@ namespace SIFAT.Views
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            BukaFormDashboard();
+            BukaForm(new FormDashboard(_userLogin));
         }
 
         private void btnLahan_Click(object sender, EventArgs e)
@@ -87,8 +89,7 @@ namespace SIFAT.Views
             DialogResult result = MessageBox.Show("Yakin ingin keluar?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                FormLogin login = new FormLogin();
-                login.Show();
+                IsLogout = true;
                 this.Close();
             }
         }

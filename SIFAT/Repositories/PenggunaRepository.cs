@@ -6,12 +6,14 @@ using SIFAT.Models;
 
 namespace SIFAT.Repositories
 {
-    public class PenggunaRepository
+    public class PenggunaRepository : BaseRepository<Pengguna>
     {
+        protected override string NamaTabel => "pengguna";
+
         public Pengguna Login(string username, string password)
         {
             Pengguna user = null;
-            using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
+            using (NpgsqlConnection conn = GetConnection())
             {
                 conn.Open();
                 string query = "SELECT id, username, password, nama_lengkap, role FROM pengguna WHERE username = @username AND password = @password AND is_delete = false";
@@ -45,9 +47,9 @@ namespace SIFAT.Repositories
             return user;
         }
 
-        public void Insert(Pengguna pengguna)
+        public override void Insert(Pengguna pengguna)
         {
-            using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
+            using (NpgsqlConnection conn = GetConnection())
             {
                 conn.Open();
                 string query = "INSERT INTO pengguna (username, password, nama_lengkap, role) VALUES (@username, @password, @nama, 'Buruh Tani')";
@@ -61,10 +63,10 @@ namespace SIFAT.Repositories
             }
         }
 
-        public List<Pengguna> GetAll()
+        public override List<Pengguna> GetAll()
         {
             List<Pengguna> list = new List<Pengguna>();
-            using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
+            using (NpgsqlConnection conn = GetConnection())
             {
                 conn.Open();
                 string query = "SELECT id, username, password, nama_lengkap, role FROM pengguna WHERE role = 'Buruh Tani' AND is_delete = false ORDER BY id DESC";
@@ -79,8 +81,7 @@ namespace SIFAT.Repositories
                                 Id = Convert.ToInt32(reader["id"]),
                                 Username = reader["username"].ToString(),
                                 Password = reader["password"].ToString(),
-                                NamaLengkap = reader["nama_lengkap"].ToString(),
-                                Role = reader["role"].ToString()
+                                NamaLengkap = reader["nama_lengkap"].ToString()
                             });
                         }
                     }
@@ -89,32 +90,41 @@ namespace SIFAT.Repositories
             return list;
         }
 
-        public void Update(Pengguna pengguna)
+        public bool IsUsernameExist(string username, int excludeId = 0)
         {
-            using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
+            using (NpgsqlConnection conn = GetConnection())
             {
                 conn.Open();
-                string query = "UPDATE pengguna SET username = @username, password = @password, nama_lengkap = @nama WHERE id = @id";
+                string query = "SELECT COUNT(1) FROM pengguna WHERE LOWER(username) = LOWER(@username) AND id <> @excludeId";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@username", pengguna.Username);
-                    cmd.Parameters.AddWithValue("@password", pengguna.Password);
-                    cmd.Parameters.AddWithValue("@nama", pengguna.NamaLengkap);
-                    cmd.Parameters.AddWithValue("@id", pengguna.Id);
-                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@excludeId", excludeId);
+                    long count = Convert.ToInt64(cmd.ExecuteScalar());
+                    return count > 0;
                 }
             }
         }
 
-        public void Delete(int id)
+        public override void Update(Pengguna pengguna)
         {
-            using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
+            using (NpgsqlConnection conn = GetConnection())
             {
                 conn.Open();
-                string query = "UPDATE pengguna SET is_delete = true WHERE id = @id";
+                bool ubahPassword = !string.IsNullOrWhiteSpace(pengguna.Password);
+                string query = ubahPassword
+                    ? "UPDATE pengguna SET username = @username, password = @password, nama_lengkap = @nama WHERE id = @id"
+                    : "UPDATE pengguna SET username = @username, nama_lengkap = @nama WHERE id = @id";
+
                 using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@username", pengguna.Username);
+                    if (ubahPassword)
+                    {
+                        cmd.Parameters.AddWithValue("@password", pengguna.Password);
+                    }
+                    cmd.Parameters.AddWithValue("@nama", pengguna.NamaLengkap);
+                    cmd.Parameters.AddWithValue("@id", pengguna.Id);
                     cmd.ExecuteNonQuery();
                 }
             }

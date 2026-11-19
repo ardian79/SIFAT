@@ -12,35 +12,42 @@ namespace SIFAT.Controllers
 
         public string TambahBuruh(string nama, string username, string password)
         {
+            nama = nama?.Trim();
+            username = username?.Trim();
+
             if (string.IsNullOrWhiteSpace(nama) || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 return "Semua kolom wajib diisi!";
             }
 
-            Pengguna buruh = new BuruhTani
+            if (_repo.IsUsernameExist(username))
             {
-                NamaLengkap = nama,
-                Username = username,
-                Password = password
-            };
+                return "Username sudah digunakan, silakan gunakan username lain!";
+            }
 
+            Pengguna buruh = new BuruhTani(username, password, nama);
             _repo.Insert(buruh);
             return "OK";
         }
 
         public string UbahBuruh(int id, string nama, string username, string password)
         {
-            if (string.IsNullOrWhiteSpace(nama) || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            nama = nama?.Trim();
+            username = username?.Trim();
+
+            if (string.IsNullOrWhiteSpace(nama) || string.IsNullOrWhiteSpace(username))
             {
-                return "Semua kolom wajib diisi!";
+                return "Nama Lengkap dan Username wajib diisi! (Kosongkan Password jika tidak ingin mengubahnya)";
             }
 
-            Pengguna buruh = new BuruhTani
+            if (_repo.IsUsernameExist(username, id))
             {
-                Id = id,
-                NamaLengkap = nama,
-                Username = username,
-                Password = password
+                return "Username sudah digunakan oleh pengguna lain!";
+            }
+
+            Pengguna buruh = new BuruhTani(username, password ?? string.Empty, nama)
+            {
+                Id = id
             };
 
             _repo.Update(buruh);

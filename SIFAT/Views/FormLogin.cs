@@ -16,6 +16,7 @@ namespace SIFAT.Views
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            this.Text = "SIFAT - Login";
         }
 
         protected override CreateParams CreateParams
@@ -30,18 +31,40 @@ namespace SIFAT.Views
 
         private void btnMasukLogin_Click(object sender, EventArgs e)
         {
-            AuthenticationController auth = new AuthenticationController();
-            string pesan = auth.Login(txtUsernameLogin.Text, txtPasswordLogin.Text, out Pengguna userLogin);
+            try
+            {
+                AuthenticationController auth = new AuthenticationController();
+                string pesan = auth.Login(txtUsernameLogin.Text.Trim(), txtPasswordLogin.Text, out Pengguna userLogin);
 
-            if (pesan == "OK")
-            {
-                FormUtama utama = new FormUtama(userLogin);
-                utama.Show();
-                this.Hide();
+                if (pesan == "OK")
+                {
+                    FormUtama utama = new FormUtama(userLogin);
+                    utama.FormClosed += (s, args) =>
+                    {
+                        if (utama.IsLogout)
+                        {
+                            txtUsernameLogin.Clear();
+                            txtPasswordLogin.Clear();
+                            txtUsernameLogin.Focus();
+                            this.Show();
+                        }
+                        else
+                        {
+                            Application.Exit();
+                        }
+                    };
+
+                    utama.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show(pesan, "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(pesan, "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gagal terhubung ke database: " + ex.Message, "Error Koneksi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

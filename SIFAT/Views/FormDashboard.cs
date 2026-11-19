@@ -27,8 +27,9 @@ namespace SIFAT.Views
             dgvTransaksiTerbaru.AllowUserToResizeRows = false;
             dgvTransaksiTerbaru.RowHeadersVisible = false;
             colJumlah.DefaultCellStyle.Format = "N0";
-            colTanggal.DefaultCellStyle.Format = "dd/MM/yyyy";
+            colTanggal.DefaultCellStyle.Format = "dd/MMM/yyyy";
             dgvTransaksiTerbaru.DataBindingComplete += (s, e) =>
+            lblSelamatDatang.Text = $"Selamat Datang, {_userLogin.NamaLengkap} ({_userLogin.GetHakAkses()})";
             {
                 AturTinggiTabel();
                 dgvTransaksiTerbaru.ClearSelection();
@@ -58,7 +59,7 @@ namespace SIFAT.Views
 
                 if (dgvTransaksiTerbaru.Columns["colNamaPengguna"] != null)
                 {
-                    dgvTransaksiTerbaru.Columns["colNamaPengguna"].Visible = (_userLogin.Role == "Petani");
+                    dgvTransaksiTerbaru.Columns["colNamaPengguna"].Visible = _userLogin.BisaLihatPenginput();
                 }
 
                 AturTinggiTabel();

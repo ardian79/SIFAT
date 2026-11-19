@@ -150,7 +150,7 @@
             txtPasswordPengguna.Margin = new Padding(3, 2, 3, 2);
             txtPasswordPengguna.Name = "txtPasswordPengguna";
             txtPasswordPengguna.PasswordChar = '*';
-            txtPasswordPengguna.Size = new Size(175, 23);
+            txtPasswordPengguna.Size = new Size(200, 23);
             txtPasswordPengguna.TabIndex = 2;
             // 
             // txtUsernamePengguna

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SIFAT.Repositories
 {
-    internal class DashboardRepository
+    public class DashboardRepository
     {
         public decimal GetTotalPemasukan()
         {

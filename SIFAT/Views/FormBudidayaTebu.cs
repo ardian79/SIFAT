@@ -24,10 +24,15 @@ namespace SIFAT.Views
             this.Dock = DockStyle.Fill;
             this.ForeColor = Color.Black;
 
+            colTglTanam.DefaultCellStyle.Format = "dd/MMM/yyyy";
+            colTglPanen.DefaultCellStyle.Format = "dd/MMM/yyyy";
+            colJumlah.DefaultCellStyle.Format = "N0";
+
             _userLogin = user;
 
             LoadComboLahan();
             LoadComboStatus();
+            cmbStatusBudidaya.SelectedIndexChanged += cmbStatusBudidaya_SelectedIndexChanged;
             LoadData();
         }
 
@@ -42,7 +47,7 @@ namespace SIFAT.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal memuat data lahan: " + ex.Message);
+                MessageBox.Show("Gagal memuat data lahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -63,14 +68,14 @@ namespace SIFAT.Views
 
                 if (dgvBudidayaTebu.Columns["colNamaPengguna"] != null)
                 {
-                    dgvBudidayaTebu.Columns["colNamaPengguna"].Visible = (_userLogin.Role == "Petani");
+                    dgvBudidayaTebu.Columns["colNamaPengguna"].Visible = _userLogin.BisaLihatPenginput();
                 }
 
                 AturTinggiTabel();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal memuat data: " + ex.Message);
+                MessageBox.Show("Gagal memuat data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -97,13 +102,21 @@ namespace SIFAT.Views
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             dtpTanggalPanen.Enabled = checkBox1.Checked;
-            if (checkBox1.Checked)
+            string targetStatus = checkBox1.Checked ? "Panen" : "Masa Tanam";
+            if (cmbStatusBudidaya.SelectedItem?.ToString() != targetStatus)
             {
-                cmbStatusBudidaya.SelectedItem = "Panen";
+                cmbStatusBudidaya.SelectedItem = targetStatus;
             }
-            else
+        }
+
+        private void cmbStatusBudidaya_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbStatusBudidaya.SelectedItem == null) return;
+
+            bool isPanen = cmbStatusBudidaya.SelectedItem.ToString() == "Panen";
+            if (checkBox1.Checked != isPanen)
             {
-                cmbStatusBudidaya.SelectedItem = "Masa Tanam";
+                checkBox1.Checked = isPanen;
             }
         }
 
@@ -115,19 +128,26 @@ namespace SIFAT.Views
                 return;
             }
 
-            int idLahan = Convert.ToInt32(cmbLahanBudidaya.SelectedValue);
-            string status = cmbStatusBudidaya.SelectedItem.ToString();
-            string pesan = _controller.TambahBudidaya(idLahan, _userLogin.Id, dtpTanggalTanam.Value, checkBox1.Checked, dtpTanggalPanen.Value, txtJumlahtebu.Text, status);
+            try
+            {
+                int idLahan = Convert.ToInt32(cmbLahanBudidaya.SelectedValue);
+                string status = cmbStatusBudidaya.SelectedItem?.ToString() ?? "Masa Tanam";
+                string pesan = _controller.TambahBudidaya(idLahan, _userLogin.Id, dtpTanggalTanam.Value, checkBox1.Checked, dtpTanggalPanen.Value, txtJumlahtebu.Text, status);
 
-            if (pesan == "OK")
-            {
-                MessageBox.Show("Data Budidaya berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-                btnResetBudidayaTebu_Click(null, null);
+                if (pesan == "OK")
+                {
+                    MessageBox.Show("Data Budidaya berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    btnResetBudidayaTebu_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gagal menambahkan data budidaya: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -139,19 +159,32 @@ namespace SIFAT.Views
                 return;
             }
 
-            int idLahan = Convert.ToInt32(cmbLahanBudidaya.SelectedValue);
-            string status = cmbStatusBudidaya.SelectedItem.ToString();
-            string pesan = _controller.UbahBudidaya(_selectedId, idLahan, dtpTanggalTanam.Value, checkBox1.Checked, dtpTanggalPanen.Value, txtJumlahtebu.Text, status);
-
-            if (pesan == "OK")
+            if (cmbLahanBudidaya.SelectedValue == null)
             {
-                MessageBox.Show("Data Budidaya berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-                btnResetBudidayaTebu_Click(null, null);
+                MessageBox.Show("Lahan sebelumnya sudah tidak aktif. Pilih lahan yang aktif terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            try
             {
-                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                int idLahan = Convert.ToInt32(cmbLahanBudidaya.SelectedValue);
+                string status = cmbStatusBudidaya.SelectedItem?.ToString() ?? "Masa Tanam";
+                string pesan = _controller.UbahBudidaya(_selectedId, idLahan, dtpTanggalTanam.Value, checkBox1.Checked, dtpTanggalPanen.Value, txtJumlahtebu.Text, status);
+
+                if (pesan == "OK")
+                {
+                    MessageBox.Show("Data Budidaya berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    btnResetBudidayaTebu_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal mengubah data budidaya: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -175,7 +208,7 @@ namespace SIFAT.Views
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -200,7 +233,14 @@ namespace SIFAT.Views
                 if (row.Cells["colId"].Value == null || row.Cells["colId"].Value == DBNull.Value) return;
 
                 _selectedId = Convert.ToInt32(row.Cells["colId"].Value);
-                cmbLahanBudidaya.SelectedValue = Convert.ToInt32(row.Cells["colIdLahan"].Value);
+
+                int idLahan = Convert.ToInt32(row.Cells["colIdLahan"].Value);
+                cmbLahanBudidaya.SelectedValue = idLahan;
+                if (cmbLahanBudidaya.SelectedValue == null || Convert.ToInt32(cmbLahanBudidaya.SelectedValue) != idLahan)
+                {
+                    cmbLahanBudidaya.SelectedIndex = -1;
+                }
+
                 dtpTanggalTanam.Value = Convert.ToDateTime(row.Cells["colTglTanam"].Value);
 
                 if (row.Cells["colTglPanen"].Value != null && row.Cells["colTglPanen"].Value != DBNull.Value)
@@ -213,8 +253,8 @@ namespace SIFAT.Views
                     checkBox1.Checked = false;
                 }
 
-                txtJumlahtebu.Text = row.Cells["colJumlah"].Value.ToString();
-                cmbStatusBudidaya.SelectedItem = row.Cells["colStatus"].Value.ToString();
+                txtJumlahtebu.Text = row.Cells["colJumlah"].Value?.ToString() ?? string.Empty;
+                cmbStatusBudidaya.SelectedItem = row.Cells["colStatus"].Value?.ToString();
             }
         }
     }

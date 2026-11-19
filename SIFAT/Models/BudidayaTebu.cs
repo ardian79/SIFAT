@@ -6,16 +6,14 @@ using System;
 
 namespace SIFAT.Models
 {
-    public class BudidayaTebu
+    public class BudidayaTebu : BaseModel
     {
-        public int Id { get; set; }
         public int IdLahan { get; set; }
         public int IdPengguna { get; set; }
         public DateTime TanggalTanam { get; set; }
         public DateTime? TanggalPanen { get; set; }
         public int JumlahTebu { get; set; }
         public string Status { get; set; }
-        public bool IsDelete { get; set; }
 
         public string NamaLokasi { get; set; }
         public string NamaPengguna { get; set; }

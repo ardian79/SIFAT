@@ -19,7 +19,7 @@ namespace SIFAT.Controllers
 
             JenisKeuangan jenisBaru = new JenisKeuangan
             {
-                NamaJenis = nama,
+                NamaJenis = nama.Trim(),
                 Kategori = kategori
             };
 
@@ -29,10 +29,15 @@ namespace SIFAT.Controllers
 
         public string UbahJenis(int id, string nama, string kategori)
         {
+            if (string.IsNullOrWhiteSpace(nama) || string.IsNullOrWhiteSpace(kategori))
+            {
+                return "Nama Jenis dan Kategori wajib diisi!";
+            }
+
             JenisKeuangan jenisEdit = new JenisKeuangan
             {
                 Id = id,
-                NamaJenis = nama,
+                NamaJenis = nama.Trim(),
                 Kategori = kategori
             };
 

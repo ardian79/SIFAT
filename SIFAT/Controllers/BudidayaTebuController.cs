@@ -13,15 +13,8 @@ namespace SIFAT.Controllers
 
         public string TambahBudidaya(int idLahan, int idPengguna, DateTime tglTanam, bool sudahPanen, DateTime tglPanen, string jumlahStr, string status)
         {
-            if (idLahan == 0 || string.IsNullOrWhiteSpace(jumlahStr))
-            {
-                return "Lahan dan Jumlah Tebu wajib diisi!";
-            }
-
-            if (!int.TryParse(jumlahStr, out int jumlah))
-            {
-                return "Jumlah Tebu harus berupa angka!";
-            }
+            string validasi = ValidasiBudidaya(idLahan, tglTanam, sudahPanen, tglPanen, jumlahStr, status, out int jumlah);
+            if (validasi != "OK") return validasi;
 
             BudidayaTebu data = new BudidayaTebu
             {
@@ -39,10 +32,8 @@ namespace SIFAT.Controllers
 
         public string UbahBudidaya(int id, int idLahan, DateTime tglTanam, bool sudahPanen, DateTime tglPanen, string jumlahStr, string status)
         {
-            if (!int.TryParse(jumlahStr, out int jumlah))
-            {
-                return "Jumlah Tebu harus berupa angka!";
-            }
+            string validasi = ValidasiBudidaya(idLahan, tglTanam, sudahPanen, tglPanen, jumlahStr, status, out int jumlah);
+            if (validasi != "OK") return validasi;
 
             BudidayaTebu data = new BudidayaTebu
             {
@@ -55,6 +46,38 @@ namespace SIFAT.Controllers
             };
 
             _repo.Update(data);
+            return "OK";
+        }
+
+        private string ValidasiBudidaya(int idLahan, DateTime tglTanam, bool sudahPanen, DateTime tglPanen, string jumlahStr, string status, out int jumlah)
+        {
+            jumlah = 0;
+
+            if (idLahan <= 0 || string.IsNullOrWhiteSpace(jumlahStr))
+            {
+                return "Lahan dan Jumlah Tebu wajib diisi!";
+            }
+
+            if (!int.TryParse(jumlahStr, out jumlah) || jumlah <= 0)
+            {
+                return "Jumlah Tebu harus berupa angka bulat lebih dari 0!";
+            }
+
+            if (sudahPanen && tglPanen.Date < tglTanam.Date)
+            {
+                return "Tanggal Panen tidak boleh lebih awal dari Tanggal Tanam!";
+            }
+
+            if (sudahPanen && status != "Panen")
+            {
+                return "Status harus 'Panen' jika opsi 'Sudah Panen?' dicentang!";
+            }
+
+            if (!sudahPanen && status == "Panen")
+            {
+                return "Centang 'Sudah Panen?' dan tentukan Tanggal Panen jika status adalah 'Panen'!";
+            }
+
             return "OK";
         }
 

@@ -42,7 +42,7 @@ namespace SIFAT.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal memuat data: " + ex.Message);
+                MessageBox.Show("Gagal memuat data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -68,17 +68,24 @@ namespace SIFAT.Views
 
         private void btnTambahJenisKeuangan_Click(object sender, EventArgs e)
         {
-            string kategori = cmbKategoriJenis.SelectedItem.ToString();
-            string pesan = _controller.TambahJenis(txtNamaJenis.Text, kategori);
-            if (pesan == "OK")
+            try
             {
-                MessageBox.Show("Data Jenis Keuangan berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-                btnResetJenisKeuangan_Click(null, null);
+                string kategori = cmbKategoriJenis.SelectedItem?.ToString() ?? string.Empty;
+                string pesan = _controller.TambahJenis(txtNamaJenis.Text, kategori);
+                if (pesan == "OK")
+                {
+                    MessageBox.Show("Data Jenis Keuangan berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    btnResetJenisKeuangan_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gagal menambahkan jenis keuangan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -89,17 +96,25 @@ namespace SIFAT.Views
                 MessageBox.Show("Pilih data di tabel terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string kategori = cmbKategoriJenis.SelectedItem.ToString();
-            string pesan = _controller.UbahJenis(_selectedId, txtNamaJenis.Text, kategori);
-            if (pesan == "OK")
+
+            try
             {
-                MessageBox.Show("Data Jenis Keuangan berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-                btnResetJenisKeuangan_Click(null, null);
+                string kategori = cmbKategoriJenis.SelectedItem?.ToString() ?? string.Empty;
+                string pesan = _controller.UbahJenis(_selectedId, txtNamaJenis.Text, kategori);
+                if (pesan == "OK")
+                {
+                    MessageBox.Show("Data Jenis Keuangan berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    btnResetJenisKeuangan_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gagal mengubah jenis keuangan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -110,6 +125,7 @@ namespace SIFAT.Views
                 MessageBox.Show("Pilih data di tabel terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             DialogResult result = MessageBox.Show("Yakin ingin menghapus jenis keuangan ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -122,7 +138,7 @@ namespace SIFAT.Views
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -143,8 +159,8 @@ namespace SIFAT.Views
                 if (row.Cells["colId"].Value == null || row.Cells["colId"].Value == DBNull.Value) return;
 
                 _selectedId = Convert.ToInt32(row.Cells["colId"].Value);
-                txtNamaJenis.Text = row.Cells["colNamaJenis"].Value.ToString();
-                cmbKategoriJenis.SelectedItem = row.Cells["colKategori"].Value.ToString();
+                txtNamaJenis.Text = row.Cells["colNamaJenis"].Value?.ToString() ?? string.Empty;
+                cmbKategoriJenis.SelectedItem = row.Cells["colKategori"].Value?.ToString();
             }
         }
     }

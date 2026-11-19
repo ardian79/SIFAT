@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SIFAT.Controllers
 {
-    internal class DashboardController
+    public class DashboardController
     {
         private DashboardRepository _repo = new DashboardRepository();
 

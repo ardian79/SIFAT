@@ -6,11 +6,13 @@ using SIFAT.Models;
 
 namespace SIFAT.Repositories
 {
-    public class BudidayaTebuRepository
+    public class BudidayaTebuRepository : BaseRepository<BudidayaTebu>
     {
-        public void Insert(BudidayaTebu budidaya)
+        protected override string NamaTabel => "budidaya_tebu";
+
+        public override void Insert(BudidayaTebu budidaya)
         {
-            using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
+            using (NpgsqlConnection conn = GetConnection())
             {
                 conn.Open();
                 string query = "INSERT INTO budidaya_tebu (id_lahan, id_pengguna, tanggal_tanam, tanggal_panen, jumlah_tebu, status) VALUES (@id_lahan, @id_pengguna, @tgl_tanam, @tgl_panen, @jumlah, @status)";
@@ -27,10 +29,10 @@ namespace SIFAT.Repositories
             }
         }
 
-        public List<BudidayaTebu> GetAll()
+        public override List<BudidayaTebu> GetAll()
         {
             List<BudidayaTebu> list = new List<BudidayaTebu>();
-            using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
+            using (NpgsqlConnection conn = GetConnection())
             {
                 conn.Open();
                 string query = @"SELECT b.id, b.id_lahan, b.id_pengguna, b.tanggal_tanam, b.tanggal_panen, b.jumlah_tebu, b.status, 
@@ -64,9 +66,9 @@ namespace SIFAT.Repositories
             return list;
         }
 
-        public void Update(BudidayaTebu budidaya)
+        public override void Update(BudidayaTebu budidaya)
         {
-            using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
+            using (NpgsqlConnection conn = GetConnection())
             {
                 conn.Open();
                 string query = "UPDATE budidaya_tebu SET id_lahan = @id_lahan, tanggal_tanam = @tgl_tanam, tanggal_panen = @tgl_panen, jumlah_tebu = @jumlah, status = @status WHERE id = @id";
@@ -78,20 +80,6 @@ namespace SIFAT.Repositories
                     cmd.Parameters.AddWithValue("@jumlah", budidaya.JumlahTebu);
                     cmd.Parameters.AddWithValue("@status", budidaya.Status);
                     cmd.Parameters.AddWithValue("@id", budidaya.Id);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-        public void Delete(int id)
-        {
-            using (NpgsqlConnection conn = SIFAT.Database.Koneksi.GetConnection())
-            {
-                conn.Open();
-                string query = "UPDATE budidaya_tebu SET is_delete = true WHERE id = @id";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                 }
             }

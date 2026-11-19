@@ -24,6 +24,9 @@ namespace SIFAT.Views
             this.Dock = DockStyle.Fill;
             this.ForeColor = Color.Black;
 
+            colJumlah.DefaultCellStyle.Format = "N0";
+            colTanggal.DefaultCellStyle.Format = "dd/MMM/yyyy";
+
             _userLogin = user;
 
             LoadComboJenis();
@@ -41,7 +44,7 @@ namespace SIFAT.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal memuat jenis keuangan: " + ex.Message);
+                MessageBox.Show("Gagal memuat jenis keuangan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -55,14 +58,14 @@ namespace SIFAT.Views
 
                 if (dgvKeuangan.Columns["colNamaPengguna"] != null)
                 {
-                    dgvKeuangan.Columns["colNamaPengguna"].Visible = (_userLogin.Role == "Petani");
+                    dgvKeuangan.Columns["colNamaPengguna"].Visible = _userLogin.BisaLihatPenginput();
                 }
 
                 AturTinggiTabel();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal memuat data: " + ex.Message);
+                MessageBox.Show("Gagal memuat data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -94,18 +97,25 @@ namespace SIFAT.Views
                 return;
             }
 
-            int idJenis = Convert.ToInt32(cmbJenisKeuangan.SelectedValue);
-            string pesan = _controller.TambahKeuangan(_userLogin.Id, idJenis, dtpTanggalKeuangan.Value, txtJumlahKeuangan.Text, txtKeteranganKeuangan.Text);
+            try
+            {
+                int idJenis = Convert.ToInt32(cmbJenisKeuangan.SelectedValue);
+                string pesan = _controller.TambahKeuangan(_userLogin.Id, idJenis, dtpTanggalKeuangan.Value, txtJumlahKeuangan.Text, txtKeteranganKeuangan.Text);
 
-            if (pesan == "OK")
-            {
-                MessageBox.Show("Transaksi berhasil dicatat!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-                btnResetKeuangan_Click(null, null);
+                if (pesan == "OK")
+                {
+                    MessageBox.Show("Transaksi berhasil dicatat!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    btnResetKeuangan_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gagal mencatat transaksi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -119,22 +129,29 @@ namespace SIFAT.Views
 
             if (cmbJenisKeuangan.SelectedValue == null)
             {
-                MessageBox.Show("Pilih jenis keuangan terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Jenis keuangan sebelumnya sudah tidak aktif. Pilih jenis keuangan yang aktif terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            int idJenis = Convert.ToInt32(cmbJenisKeuangan.SelectedValue);
-            string pesan = _controller.UbahKeuangan(_selectedId, idJenis, dtpTanggalKeuangan.Value, txtJumlahKeuangan.Text, txtKeteranganKeuangan.Text);
+            try
+            {
+                int idJenis = Convert.ToInt32(cmbJenisKeuangan.SelectedValue);
+                string pesan = _controller.UbahKeuangan(_selectedId, idJenis, dtpTanggalKeuangan.Value, txtJumlahKeuangan.Text, txtKeteranganKeuangan.Text);
 
-            if (pesan == "OK")
-            {
-                MessageBox.Show("Transaksi berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-                btnResetKeuangan_Click(null, null);
+                if (pesan == "OK")
+                {
+                    MessageBox.Show("Transaksi berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    btnResetKeuangan_Click(null, null);
+                }
+                else
+                {
+                    MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(pesan, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gagal mengubah transaksi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -158,7 +175,7 @@ namespace SIFAT.Views
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -182,11 +199,17 @@ namespace SIFAT.Views
 
                 _selectedId = Convert.ToInt32(row.Cells["colId"].Value);
                 dtpTanggalKeuangan.Value = Convert.ToDateTime(row.Cells["colTanggal"].Value);
-                cmbJenisKeuangan.SelectedValue = Convert.ToInt32(row.Cells["colIdJenisKeuangan"].Value);
-                txtJumlahKeuangan.Text = row.Cells["colJumlah"].Value.ToString();
-                txtKeteranganKeuangan.Text = row.Cells["colKeterangan"].Value.ToString();
+
+                int idJenis = Convert.ToInt32(row.Cells["colIdJenisKeuangan"].Value);
+                cmbJenisKeuangan.SelectedValue = idJenis;
+                if (cmbJenisKeuangan.SelectedValue == null || Convert.ToInt32(cmbJenisKeuangan.SelectedValue) != idJenis)
+                {
+                    cmbJenisKeuangan.SelectedIndex = -1;
+                }
+
+                txtJumlahKeuangan.Text = row.Cells["colJumlah"].Value?.ToString() ?? string.Empty;
+                txtKeteranganKeuangan.Text = row.Cells["colKeterangan"].Value?.ToString() ?? string.Empty;
             }
         }
     }
 }
-

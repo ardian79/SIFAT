@@ -13,15 +13,8 @@ namespace SIFAT.Controllers
 
         public string TambahKeuangan(int idPengguna, int idJenis, DateTime tanggal, string jumlahStr, string keterangan)
         {
-            if (idJenis == 0 || string.IsNullOrWhiteSpace(jumlahStr))
-            {
-                return "Jenis dan Jumlah wajib diisi!";
-            }
-
-            if (!decimal.TryParse(jumlahStr, out decimal jumlah))
-            {
-                return "Jumlah harus berupa angka yang valid!";
-            }
+            string validasi = ValidasiKeuangan(idJenis, jumlahStr, out decimal jumlah);
+            if (validasi != "OK") return validasi;
 
             Keuangan trx = new Keuangan
             {
@@ -29,7 +22,7 @@ namespace SIFAT.Controllers
                 IdJenisKeuangan = idJenis,
                 Tanggal = tanggal,
                 Jumlah = jumlah,
-                Keterangan = keterangan
+                Keterangan = keterangan?.Trim() ?? string.Empty
             };
 
             _repoKeuangan.Insert(trx);
@@ -38,10 +31,8 @@ namespace SIFAT.Controllers
 
         public string UbahKeuangan(int id, int idJenis, DateTime tanggal, string jumlahStr, string keterangan)
         {
-            if (!decimal.TryParse(jumlahStr, out decimal jumlah))
-            {
-                return "Jumlah harus berupa angka yang valid!";
-            }
+            string validasi = ValidasiKeuangan(idJenis, jumlahStr, out decimal jumlah);
+            if (validasi != "OK") return validasi;
 
             Keuangan trx = new Keuangan
             {
@@ -49,10 +40,27 @@ namespace SIFAT.Controllers
                 IdJenisKeuangan = idJenis,
                 Tanggal = tanggal,
                 Jumlah = jumlah,
-                Keterangan = keterangan
+                Keterangan = keterangan?.Trim() ?? string.Empty
             };
 
             _repoKeuangan.Update(trx);
+            return "OK";
+        }
+
+        private string ValidasiKeuangan(int idJenis, string jumlahStr, out decimal jumlah)
+        {
+            jumlah = 0;
+
+            if (idJenis <= 0 || string.IsNullOrWhiteSpace(jumlahStr))
+            {
+                return "Jenis dan Jumlah wajib diisi!";
+            }
+
+            if (!decimal.TryParse(jumlahStr, out jumlah) || jumlah <= 0)
+            {
+                return "Jumlah harus berupa angka lebih dari 0!";
+            }
+
             return "OK";
         }
 
