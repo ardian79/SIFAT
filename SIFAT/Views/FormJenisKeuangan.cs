@@ -129,6 +129,7 @@ namespace SIFAT.Views
 
         private void btnResetJenisKeuangan_Click(object sender, EventArgs e)
         {
+
             _selectedId = 0;
             txtNamaJenis.Clear();
             cmbKategoriJenis.SelectedIndex = 1;
