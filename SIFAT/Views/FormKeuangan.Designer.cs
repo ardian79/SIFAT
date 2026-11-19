@@ -70,7 +70,7 @@
             dgvKeuangan.Name = "dgvKeuangan";
             dgvKeuangan.ReadOnly = true;
             dgvKeuangan.RowHeadersWidth = 51;
-            dgvKeuangan.Size = new Size(1113, 135);
+            dgvKeuangan.Size = new Size(1113, 225);
             dgvKeuangan.TabIndex = 8;
             dgvKeuangan.CellClick += dgvKeuangan_CellClick;
             // 
