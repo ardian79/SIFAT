@@ -92,7 +92,7 @@
             tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
             tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Absolute, 150F));
+            tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             tableLayoutDashboard.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutDashboard.Size = new Size(1163, 485);
             tableLayoutDashboard.TabIndex = 5;
@@ -229,13 +229,13 @@
             dgvTransaksiTerbaru.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTransaksiTerbaru.Columns.AddRange(new DataGridViewColumn[] { colTanggal, colNamaJenis, colKategori, colJumlah, colKeterangan, colNamaPengguna, colId, colIdPengguna, colIdJenisKeuangan, colIsDelete });
             tableLayoutDashboard.SetColumnSpan(dgvTransaksiTerbaru, 3);
-            dgvTransaksiTerbaru.Dock = DockStyle.Fill;
+            dgvTransaksiTerbaru.Dock = DockStyle.Top;
             dgvTransaksiTerbaru.Location = new Point(18, 315);
             dgvTransaksiTerbaru.Margin = new Padding(18, 15, 18, 0);
             dgvTransaksiTerbaru.Name = "dgvTransaksiTerbaru";
             dgvTransaksiTerbaru.ReadOnly = true;
             dgvTransaksiTerbaru.RowHeadersWidth = 51;
-            dgvTransaksiTerbaru.ScrollBars = ScrollBars.Horizontal;
+            dgvTransaksiTerbaru.ScrollBars = ScrollBars.None;
             dgvTransaksiTerbaru.Size = new Size(1127, 135);
             dgvTransaksiTerbaru.TabIndex = 10;
             // 

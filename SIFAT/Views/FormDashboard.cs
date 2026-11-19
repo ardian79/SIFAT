@@ -23,6 +23,17 @@ namespace SIFAT.Views
             this.Dock = DockStyle.Fill;
             this.ForeColor = Color.Black;
 
+            dgvTransaksiTerbaru.ScrollBars = ScrollBars.None;
+            dgvTransaksiTerbaru.AllowUserToResizeRows = false;
+            dgvTransaksiTerbaru.RowHeadersVisible = false;
+            colJumlah.DefaultCellStyle.Format = "N0";
+            colTanggal.DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvTransaksiTerbaru.DataBindingComplete += (s, e) =>
+            {
+                AturTinggiTabel();
+                dgvTransaksiTerbaru.ClearSelection();
+            };
+
             _userLogin = user;
             lblSelamatDatang.Text = "Selamat Datang, " + _userLogin.NamaLengkap;
 
@@ -45,9 +56,9 @@ namespace SIFAT.Views
                 dgvTransaksiTerbaru.AutoGenerateColumns = false;
                 dgvTransaksiTerbaru.DataSource = recentList;
 
-                if (dgvTransaksiTerbaru.Columns["NamaPengguna"] != null)
+                if (dgvTransaksiTerbaru.Columns["colNamaPengguna"] != null)
                 {
-                    dgvTransaksiTerbaru.Columns["NamaPengguna"].Visible = (_userLogin.Role == "Petani");
+                    dgvTransaksiTerbaru.Columns["colNamaPengguna"].Visible = (_userLogin.Role == "Petani");
                 }
 
                 AturTinggiTabel();
@@ -60,13 +71,8 @@ namespace SIFAT.Views
 
         private void AturTinggiTabel()
         {
-            int totalHeight = dgvTransaksiTerbaru.ColumnHeadersHeight;
-            foreach (DataGridViewRow row in dgvTransaksiTerbaru.Rows)
-            {
-                if (row.Visible) totalHeight += row.Height;
-            }
-
-            totalHeight += 4;
+            int rowsHeight = dgvTransaksiTerbaru.Rows.GetRowsHeight(DataGridViewElementStates.Visible);
+            int totalHeight = dgvTransaksiTerbaru.ColumnHeadersHeight + rowsHeight + 2;
 
             dgvTransaksiTerbaru.Height = totalHeight;
         }
