@@ -96,7 +96,6 @@ namespace SIFAT.Views
             if (hasHScroll) totalHeight += SystemInformation.HorizontalScrollBarHeight;
 
             dgvBudidayaTebu.Height = totalHeight;
-            dgvBudidayaTebu.BackgroundColor = Color.White;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

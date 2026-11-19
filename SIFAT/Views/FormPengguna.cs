@@ -61,7 +61,6 @@ namespace SIFAT.Views
             if (hasHScroll) totalHeight += SystemInformation.HorizontalScrollBarHeight;
 
             dgvPengguna.Height = totalHeight;
-            dgvPengguna.BackgroundColor = Color.White;
         }
 
         private void btnTambahPengguna_Click(object sender, EventArgs e)

@@ -86,7 +86,6 @@ namespace SIFAT.Views
             if (hasHScroll) totalHeight += SystemInformation.HorizontalScrollBarHeight;
 
             dgvKeuangan.Height = totalHeight;
-            dgvKeuangan.BackgroundColor = Color.White;
         }
 
         private void btnTambahKeuangan_Click(object sender, EventArgs e)
