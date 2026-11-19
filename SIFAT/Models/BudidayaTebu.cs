@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-using System;
-
 namespace SIFAT.Models
 {
     public class BudidayaTebu : BaseModel

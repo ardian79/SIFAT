@@ -23,20 +23,19 @@ namespace SIFAT.Views
             this.Dock = DockStyle.Fill;
             this.ForeColor = Color.Black;
 
+            _userLogin = user;
+            lblSelamatDatang.Text = $"Selamat Datang, {_userLogin.NamaLengkap} ({_userLogin.GetHakAkses()})";
+
             dgvTransaksiTerbaru.ScrollBars = ScrollBars.None;
             dgvTransaksiTerbaru.AllowUserToResizeRows = false;
             dgvTransaksiTerbaru.RowHeadersVisible = false;
             colJumlah.DefaultCellStyle.Format = "N0";
             colTanggal.DefaultCellStyle.Format = "dd/MMM/yyyy";
             dgvTransaksiTerbaru.DataBindingComplete += (s, e) =>
-            lblSelamatDatang.Text = $"Selamat Datang, {_userLogin.NamaLengkap} ({_userLogin.GetHakAkses()})";
             {
                 AturTinggiTabel();
                 dgvTransaksiTerbaru.ClearSelection();
             };
-
-            _userLogin = user;
-            lblSelamatDatang.Text = "Selamat Datang, " + _userLogin.NamaLengkap;
 
             LoadData();
         }
