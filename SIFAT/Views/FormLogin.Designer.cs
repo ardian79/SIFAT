@@ -93,7 +93,7 @@
             // 
             labelSIFAT.AutoSize = true;
             labelSIFAT.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelSIFAT.Location = new Point(165, 78);
+            labelSIFAT.Location = new Point(171, 78);
             labelSIFAT.Name = "labelSIFAT";
             labelSIFAT.Size = new Size(50, 21);
             labelSIFAT.TabIndex = 6;
