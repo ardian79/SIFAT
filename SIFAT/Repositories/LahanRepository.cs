@@ -1,18 +1,17 @@
-﻿using System;
+﻿using Npgsql;
+using SIFAT.Database;
+using SIFAT.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Npgsql;
-using SIFAT.Models;
 
 namespace SIFAT.Repositories
 {
-    public class LahanRepository : BaseRepository<Lahan>
+    public class LahanRepository
     {
-        protected override string NamaTabel => "lahan";
-
-        public override void Insert(Lahan lahan)
+        public void Insert(Lahan lahan)
         {
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = "INSERT INTO lahan (nama_lokasi, luas_lahan, catatan) VALUES (@nama, @luas, @catatan)";
@@ -26,10 +25,10 @@ namespace SIFAT.Repositories
             }
         }
 
-        public override List<Lahan> GetAll()
+        public List<Lahan> GetAll()
         {
             List<Lahan> list = new List<Lahan>();
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = "SELECT id, nama_lokasi, luas_lahan, catatan FROM lahan WHERE is_delete = false ORDER BY id DESC";
@@ -53,9 +52,9 @@ namespace SIFAT.Repositories
             return list;
         }
 
-        public override void Update(Lahan lahan)
+        public void Update(Lahan lahan)
         {
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = "UPDATE lahan SET nama_lokasi = @nama, luas_lahan = @luas, catatan = @catatan WHERE id = @id";
@@ -65,6 +64,20 @@ namespace SIFAT.Repositories
                     cmd.Parameters.AddWithValue("@luas", lahan.LuasLahan);
                     cmd.Parameters.AddWithValue("@catatan", lahan.Catatan);
                     cmd.Parameters.AddWithValue("@id", lahan.Id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Delete(int id)
+        {
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
+            {
+                conn.Open();
+                string query = "UPDATE lahan SET is_delete = true WHERE id = @id";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                 }
             }

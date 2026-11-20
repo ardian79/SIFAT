@@ -1,18 +1,17 @@
-﻿using System;
+﻿using Npgsql;
+using SIFAT.Database;
+using SIFAT.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Npgsql;
-using SIFAT.Models;
 
 namespace SIFAT.Repositories
 {
-    public class KeuanganRepository : BaseRepository<Keuangan>
+    public class KeuanganRepository
     {
-        protected override string NamaTabel => "keuangan";
-
-        public override void Insert(Keuangan keuangan)
+        public void Insert(Keuangan keuangan)
         {
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = "INSERT INTO keuangan (id_pengguna, id_jenis_keuangan, tanggal, jumlah, keterangan) VALUES (@id_pengguna, @id_jenis, @tanggal, @jumlah, @ket)";
@@ -28,10 +27,10 @@ namespace SIFAT.Repositories
             }
         }
 
-        public override List<Keuangan> GetAll()
+        public List<Keuangan> GetAll()
         {
             List<Keuangan> list = new List<Keuangan>();
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = @"SELECT k.id, k.id_pengguna, k.id_jenis_keuangan, k.tanggal, k.jumlah, k.keterangan, 
@@ -65,9 +64,9 @@ namespace SIFAT.Repositories
             return list;
         }
 
-        public override void Update(Keuangan keuangan)
+        public void Update(Keuangan keuangan)
         {
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = "UPDATE keuangan SET id_jenis_keuangan = @id_jenis, tanggal = @tanggal, jumlah = @jumlah, keterangan = @ket WHERE id = @id";
@@ -78,6 +77,20 @@ namespace SIFAT.Repositories
                     cmd.Parameters.AddWithValue("@jumlah", keuangan.Jumlah);
                     cmd.Parameters.AddWithValue("@ket", keuangan.Keterangan);
                     cmd.Parameters.AddWithValue("@id", keuangan.Id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Delete(int id)
+        {
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
+            {
+                conn.Open();
+                string query = "UPDATE keuangan SET is_delete = true WHERE id = @id";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                 }
             }

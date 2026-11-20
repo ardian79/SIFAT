@@ -1,19 +1,18 @@
-﻿using System;
+﻿using Npgsql;
+using SIFAT.Database;
+using SIFAT.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Npgsql;
-using SIFAT.Models;
 
 namespace SIFAT.Repositories
 {
-    public class PenggunaRepository : BaseRepository<Pengguna>
+    public class PenggunaRepository
     {
-        protected override string NamaTabel => "pengguna";
-
         public Pengguna Login(string username, string password)
         {
             Pengguna user = null;
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = "SELECT id, username, password, nama_lengkap, role FROM pengguna WHERE username = @username AND password = @password AND is_delete = false";
@@ -27,9 +26,9 @@ namespace SIFAT.Repositories
                         {
                             string roleDb = reader["role"].ToString();
 
-                            if (roleDb == "Petani")
+                            if (roleDb == "Pemilik Lahan")
                             {
-                                user = new Petani();
+                                user = new PemilikLahan();
                             }
                             else
                             {
@@ -47,9 +46,9 @@ namespace SIFAT.Repositories
             return user;
         }
 
-        public override void Insert(Pengguna pengguna)
+        public void Insert(Pengguna pengguna)
         {
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = "INSERT INTO pengguna (username, password, nama_lengkap, role) VALUES (@username, @password, @nama, 'Buruh Tani')";
@@ -63,10 +62,10 @@ namespace SIFAT.Repositories
             }
         }
 
-        public override List<Pengguna> GetAll()
+        public List<Pengguna> GetAll()
         {
             List<Pengguna> list = new List<Pengguna>();
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = "SELECT id, username, password, nama_lengkap, role FROM pengguna WHERE role = 'Buruh Tani' AND is_delete = false ORDER BY id DESC";
@@ -92,7 +91,7 @@ namespace SIFAT.Repositories
 
         public bool IsUsernameExist(string username, int excludeId = 0)
         {
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 string query = "SELECT COUNT(1) FROM pengguna WHERE LOWER(username) = LOWER(@username) AND id <> @excludeId";
@@ -106,9 +105,9 @@ namespace SIFAT.Repositories
             }
         }
 
-        public override void Update(Pengguna pengguna)
+        public void Update(Pengguna pengguna)
         {
-            using (NpgsqlConnection conn = GetConnection())
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
             {
                 conn.Open();
                 bool ubahPassword = !string.IsNullOrWhiteSpace(pengguna.Password);
@@ -125,6 +124,20 @@ namespace SIFAT.Repositories
                     }
                     cmd.Parameters.AddWithValue("@nama", pengguna.NamaLengkap);
                     cmd.Parameters.AddWithValue("@id", pengguna.Id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Delete(int id)
+        {
+            using (NpgsqlConnection conn = Koneksi.GetConnection())
+            {
+                conn.Open();
+                string query = "UPDATE pengguna SET is_delete = true WHERE id = @id";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                 }
             }

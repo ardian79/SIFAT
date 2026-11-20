@@ -4,8 +4,10 @@ using System.Text;
 
 namespace SIFAT.Models
 {
-    public abstract class Pengguna : BaseModel
+    public abstract class Pengguna
     {
+        public int Id { get; set; }
+        public bool IsDelete { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string NamaLengkap { get; set; }
@@ -13,6 +15,7 @@ namespace SIFAT.Models
 
         public Pengguna()
         {
+            IsDelete = false;
             Username = string.Empty;
             Password = string.Empty;
             NamaLengkap = string.Empty;
@@ -21,6 +24,7 @@ namespace SIFAT.Models
 
         public Pengguna(string username, string password, string namaLengkap)
         {
+            IsDelete = false;
             Username = username;
             Password = password;
             NamaLengkap = namaLengkap;
@@ -40,17 +44,17 @@ namespace SIFAT.Models
         }
     }
 
-    public class Petani : Pengguna
+    public class PemilikLahan : Pengguna
     {
-        public Petani()
+        public PemilikLahan()
         {
-            Role = "Petani";
+            Role = "Pemilik Lahan";
         }
 
-        public Petani(string username, string password, string namaLengkap)
+        public PemilikLahan(string username, string password, string namaLengkap)
             : base(username, password, namaLengkap)
         {
-            Role = "Petani";
+            Role = "Pemilik Lahan";
         }
 
         public override string GetHakAkses()

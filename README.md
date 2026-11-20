@@ -1,6 +1,6 @@
 # SIFAT - System Finance and Tracking
 
-SIFAT adalah aplikasi desktop berbasis **C# Windows Forms** yang dirancang khusus untuk membantu para petani dan buruh tani dalam mengelola keuangan serta mencatat aktivitas budidaya tanaman tebu secara digital, rapi, dan terintegrasi.
+SIFAT adalah aplikasi desktop berbasis **C# Windows Forms** yang dirancang khusus untuk membantu para pemilik lahan dan buruh tani dalam mengelola keuangan serta mencatat aktivitas budidaya tanaman tebu secara digital, rapi, dan terintegrasi.
 
 Proyek ini dibangun sebagai pemenuhan **Tugas Akhir mata kuliah Pemrograman Berorientasi Objek (PBO)**.
 
@@ -8,13 +8,13 @@ Proyek ini dibangun sebagai pemenuhan **Tugas Akhir mata kuliah Pemrograman Bero
 
 Aplikasi ini menerapkan sistem *Role-Based Access Control* (Hak Akses Berdasarkan Peran):
 
-1. **Multi-User Login** (Petani/Owner dan Buruh Tani).
+1. **Multi-User Login** (Pemilik Lahan dan Buruh Tani).
 2. **Dashboard** (Ringkasan Total Pemasukan, Pengeluaran, dan Saldo Kas *real-time*).
 3. **Manajemen Data Lahan** (Pencatatan lokasi dan luas lahan).
 4. **Manajemen Jenis Keuangan** (Kategori Pemasukan & Pengeluaran).
 5. **Manajemen Data Keuangan** (Buku kas harian dengan fitur CRUD).
 6. **Manajemen Budidaya Tebu** (Pencatatan siklus tanam & panen).
-7. **Kelola Buruh Tani** (Khusus Petani untuk mengelola akun karyawan).
+7. **Kelola Buruh Tani** (Khusus Pemilik Lahan untuk mengelola akun karyawan).
 
 ## Teknologi & Arsitektur
 
@@ -30,7 +30,7 @@ Aplikasi ini menerapkan sistem *Role-Based Access Control* (Hak Akses Berdasarka
 
 ### 1. Halaman Login
 
-Halaman masuk untuk Petani dan Buruh Tani dengan desain *Full Screen* dan *Card* elegan.
+Halaman masuk untuk Pemilik Lahan dan Buruh Tani dengan desain *Full Screen* dan *Card* elegan.
 
 ![Halaman Login](images/login.png)
 
@@ -66,7 +66,7 @@ Halaman pencatatan tanggal tanam, jumlah tebu, dan status panen.
 
 ### 7. Manajemen Kelola Buruh Tani
 
-Halaman untuk Petani mendaftarkan, mereset password, atau menonaktifkan akun Buruh Tani.
+Halaman untuk Pemilik Lahan mendaftarkan, mereset password, atau menonaktifkan akun Buruh Tani.
 
 ![Halaman Kelola Buruh](images/kelola-buruh.png)
 

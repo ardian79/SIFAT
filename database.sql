@@ -44,5 +44,5 @@ CREATE TABLE budidaya_tebu (
 );
 
 INSERT INTO pengguna (username, password, nama_lengkap, role) VALUES 
-('owner', '123', 'Bapak Eddy Sumarno', 'Petani'),
+('owner', '123', 'Bapak Eddy Sumarno', 'Pemilik Lahan'),
 ('buruh', '123', 'Andi Wijaya', 'Buruh Tani');

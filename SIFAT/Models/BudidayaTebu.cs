@@ -4,8 +4,10 @@ using System.Text;
 
 namespace SIFAT.Models
 {
-    public class BudidayaTebu : BaseModel
+    public class BudidayaTebu
     {
+        public int Id { get; set; }
+        public bool IsDelete { get; set; }
         public int IdLahan { get; set; }
         public int IdPengguna { get; set; }
         public DateTime TanggalTanam { get; set; }
@@ -18,6 +20,7 @@ namespace SIFAT.Models
 
         public BudidayaTebu()
         {
+            IsDelete = false;
             Status = string.Empty;
             NamaLokasi = string.Empty;
             NamaPengguna = string.Empty;
